@@ -1,6 +1,6 @@
 <?php
 
-namespace agendaweb\Events;
+namespace AgendaWeb\Events;
 
 abstract class Event
 {

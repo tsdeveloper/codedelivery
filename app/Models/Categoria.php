@@ -1,12 +1,15 @@
 <?php
 
-namespace agendaweb\Models;
+namespace AgendaWeb\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Categoria extends Model
+class Categoria extends Model implements Transformable
 {
-    //
+    use TransformableTrait;
+
     protected $fillable=[
         'descricao'
 
@@ -15,4 +18,5 @@ class Categoria extends Model
     public function participantes(){
       return  $this->hasMany(Participante::class);
     }
+
 }

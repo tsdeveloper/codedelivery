@@ -1,10 +1,10 @@
 <?php
 
-namespace agendaweb\Http\Controllers\Auth;
+namespace AgendaWeb\Http\Controllers\Auth;
 
-use agendaweb\User;
+use AgendaWeb\User;
 use Validator;
-use agendaweb\Http\Controllers\Controller;
+use AgendaWeb\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => SebreaApp\Models\User::class,
+    'model' => AgendaWeb\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 <?php
 
-namespace agendaweb\Http\Requests;
+namespace AgendaWeb\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

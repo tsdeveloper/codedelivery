@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use SebreaApp\Models\Participantes;
+use AgendaWeb\Models\Participantes;
 class ParticipanteTableSeeder extends Seeder
 {
     /**

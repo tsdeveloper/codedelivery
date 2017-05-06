@@ -1,6 +1,6 @@
 <?php
 
-namespace agendaweb\Exceptions;
+namespace AgendaWeb\Exceptions;
 
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

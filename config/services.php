@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => agendaweb\User::class,
+        'model'  => AgendaWeb\User::class,
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

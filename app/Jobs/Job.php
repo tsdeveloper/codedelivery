@@ -1,6 +1,6 @@
 <?php
 
-namespace agendaweb\Jobs;
+namespace AgendaWeb\Jobs;
 
 use Illuminate\Bus\Queueable;
 

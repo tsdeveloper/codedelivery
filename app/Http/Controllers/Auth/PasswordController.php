@@ -1,8 +1,8 @@
 <?php
 
-namespace agendaweb\Http\Controllers\Auth;
+namespace AgendaWeb\Http\Controllers\Auth;
 
-use agendaweb\Http\Controllers\Controller;
+use AgendaWeb\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

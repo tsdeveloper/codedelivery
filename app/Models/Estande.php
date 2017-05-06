@@ -1,17 +1,21 @@
 <?php
 
-namespace agendaweb\Models;
+namespace AgendaWeb\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Estande extends Model
+class Estande extends Model implements Transformable
 {
-    //
-    protected $fillable=[
+    use TransformableTrait;
+
+       protected $fillable=[
         'participante_id',
         'nome',
         'descricao',
         'ativo'
 
     ];
+
 }

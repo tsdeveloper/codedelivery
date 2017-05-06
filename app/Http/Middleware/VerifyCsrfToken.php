@@ -1,6 +1,6 @@
 <?php
 
-namespace agendaweb\Http\Middleware;
+namespace AgendaWeb\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 

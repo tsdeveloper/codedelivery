@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    agendaweb\Http\Kernel::class
+    AgendaWeb\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    agendaweb\Console\Kernel::class
+    AgendaWeb\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    agendaweb\Exceptions\Handler::class
+    AgendaWeb\Exceptions\Handler::class
 );
 
 /*

@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: agendaweb
-        psr4_prefix: agendaweb
+        namespace: AgendaWeb
+        psr4_prefix: AgendaWeb
         src_path: app

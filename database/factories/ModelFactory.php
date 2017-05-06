@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(agendaweb\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(AgendaWeb\Models\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
@@ -20,7 +20,7 @@ $factory->define(agendaweb\Models\User::class, function (Faker\Generator $faker)
     ];
 });
 
-$factory->define(agendaweb\Models\Participante::class, function(Faker\Generator $faker){
+$factory->define(AgendaWeb\Models\Participante::class, function(Faker\Generator $faker){
     return [
         'nome' => $faker->name,
         'cpf' => str_random(10),
@@ -29,7 +29,7 @@ $factory->define(agendaweb\Models\Participante::class, function(Faker\Generator 
 });
 
 
-$factory->define(agendaweb\Models\Categoria::class, function(Faker\Generator $faker){
+$factory->define(AgendaWeb\Models\Categoria::class, function(Faker\Generator $faker){
     return [
         'descricao' => $faker->jobTitle,
         
@@ -37,7 +37,7 @@ $factory->define(agendaweb\Models\Categoria::class, function(Faker\Generator $fa
 });
 
 
-$factory->define(agendaweb\Models\Estande::class, function(Faker\Generator $faker){
+$factory->define(AgendaWeb\Models\Estande::class, function(Faker\Generator $faker){
     return [
         'nome' => $faker->domainWord,
         'descricao' => $faker->company,

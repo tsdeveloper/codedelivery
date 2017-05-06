@@ -141,10 +141,10 @@ return [
         /*
          * Application Service Providers...
          */
-        agendaweb\Providers\AppServiceProvider::class,
-        agendaweb\Providers\AuthServiceProvider::class,
-        agendaweb\Providers\EventServiceProvider::class,
-        agendaweb\Providers\RouteServiceProvider::class,
+        AgendaWeb\Providers\AppServiceProvider::class,
+        AgendaWeb\Providers\AuthServiceProvider::class,
+        AgendaWeb\Providers\EventServiceProvider::class,
+        AgendaWeb\Providers\RouteServiceProvider::class,
 
     ],
 

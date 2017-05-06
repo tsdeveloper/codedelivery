@@ -1,6 +1,6 @@
 <?php
 
-namespace agendaweb\Providers;
+namespace AgendaWeb\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

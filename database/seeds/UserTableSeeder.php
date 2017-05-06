@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use SebreaApp\Models\User;
+use AgendaWeb\Models\User;
+use AgendaWeb\Models\Participante;
 class UserTableSeeder extends Seeder
 {
     /**
@@ -11,6 +12,8 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class,10)->create();
+        factory(User::class, 10)->create()->each(function($p){
+          $p->participante()->save(factory(Participante::class)->make());    
+        });
     }
 }

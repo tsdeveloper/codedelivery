@@ -1,6 +1,6 @@
 <?php
 
-namespace agendaweb\Providers;
+namespace AgendaWeb\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'agendaweb\Events\SomeEvent' => [
-            'agendaweb\Listeners\EventListener',
+        'AgendaWeb\Events\SomeEvent' => [
+            'AgendaWeb\Listeners\EventListener',
         ],
     ];
 

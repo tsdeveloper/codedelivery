@@ -1,6 +1,6 @@
 <?php
 
-namespace agendaweb\Providers;
+namespace AgendaWeb\Providers;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'agendaweb\Model' => 'agendaweb\Policies\ModelPolicy',
+        'AgendaWeb\Model' => 'AgendaWeb\Policies\ModelPolicy',
     ];
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace agendaweb\Console\Commands;
+namespace AgendaWeb\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

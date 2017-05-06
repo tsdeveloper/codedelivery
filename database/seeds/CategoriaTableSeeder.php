@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use SebreaApp\Models\Categoria;
-use SebreaApp\Models\Participante;
+use AgendaWeb\Models\Categoria;
+use AgendaWeb\Models\Participante;
 class CategoriaTableSeeder extends Seeder
 {
     /**
