@@ -35,7 +35,7 @@
         @endforeach 
     </tbody>
 </table>
-
+    {!! $categorias->render() !!}
 
 </div>
 </div>

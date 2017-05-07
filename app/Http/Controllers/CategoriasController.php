@@ -14,7 +14,7 @@ class CategoriasController extends Controller
     //
     public function Index(CategoriaRepository $repository){
       $usuario = "Devleoper";
-      $categorias = $repository->all();
+      $categorias = $repository->paginate(5);
       return view('admin.categorias.index',compact('categorias','usuario'));
     }
 }
