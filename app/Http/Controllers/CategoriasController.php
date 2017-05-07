@@ -13,8 +13,18 @@ class CategoriasController extends Controller
 {
     //
     public function Index(CategoriaRepository $repository){
+    
       $usuario = "Devleoper";
       $categorias = $repository->paginate(5);
+    
       return view('admin.categorias.index',compact('categorias','usuario'));
+
+    }
+
+    public function create(){
+    
+         
+      return view('admin.categorias.index');
+      
     }
 }
