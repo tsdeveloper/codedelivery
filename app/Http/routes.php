@@ -16,7 +16,16 @@ Route::get('/', function () {
 });
 
 Route::get('test',function(){
-
 $repository = app()->make('AgendaWeb\Repositories\CategoriaRepository');
+return $repository->all();
+});
+
+Route::get('user',function(){
+$repository = app()->make('AgendaWeb\Repositories\UserRepository');
+return $repository->all();
+});
+
+Route::get('participante',function(){
+$repository = app()->make('AgendaWeb\Repositories\ParticipanteRepository');
 return $repository->all();
 });

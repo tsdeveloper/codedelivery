@@ -145,6 +145,7 @@ return [
         AgendaWeb\Providers\AuthServiceProvider::class,
         AgendaWeb\Providers\EventServiceProvider::class,
         AgendaWeb\Providers\RouteServiceProvider::class,
+        AgendaWeb\Providers\RepositoryServiceProvider::class,
 
     ],
 
