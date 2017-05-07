@@ -15,13 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Router Categoria
 Route::get('admin/categorias','CategoriasController@index');
 
+//Router User
 Route::get('user',function(){
 $repository = app()->make('AgendaWeb\Repositories\UserRepository');
 return $repository->all();
 });
 
+//Router Paritipante
 Route::get('participante',function(){
 $repository = app()->make('AgendaWeb\Repositories\ParticipanteRepository');
 return $repository->all();
