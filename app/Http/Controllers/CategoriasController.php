@@ -2,6 +2,8 @@
 
 namespace AgendaWeb\Http\Controllers;
 
+use AgendaWeb\Repositories\CategoriaRepository;
+
 use Illuminate\Http\Request;
 
 use AgendaWeb\Http\Requests;
@@ -10,8 +12,9 @@ use AgendaWeb\Http\Controllers\Controller;
 class CategoriasController extends Controller
 {
     //
-    public function Index(){
-
-        echo "<h1>Categorias</h1>";
+    public function Index(CategoriaRepository $repository){
+      $usuario = "Devleoper";
+      $categorias = $repository->all();
+      return view('admin.categorias.index',compact('categorias','usuario'));
     }
 }
