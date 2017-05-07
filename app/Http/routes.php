@@ -15,10 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('test',function(){
-$repository = app()->make('AgendaWeb\Repositories\CategoriaRepository');
-return $repository->all();
-});
+Route::get('admin/categorias','CategoriasController@index');
 
 Route::get('user',function(){
 $repository = app()->make('AgendaWeb\Repositories\UserRepository');

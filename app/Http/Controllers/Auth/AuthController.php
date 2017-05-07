@@ -2,7 +2,7 @@
 
 namespace AgendaWeb\Http\Controllers\Auth;
 
-use AgendaWeb\User;
+use AgendaWeb\Models\User;
 use Validator;
 use AgendaWeb\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;

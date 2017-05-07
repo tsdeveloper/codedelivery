@@ -137,7 +137,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
-
+        Bestmomo\Scafold\ScafoldServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -146,6 +146,7 @@ return [
         AgendaWeb\Providers\EventServiceProvider::class,
         AgendaWeb\Providers\RouteServiceProvider::class,
         AgendaWeb\Providers\RepositoryServiceProvider::class,
+      
 
     ],
 
