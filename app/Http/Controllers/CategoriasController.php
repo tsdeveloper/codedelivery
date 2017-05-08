@@ -27,4 +27,8 @@ class CategoriasController extends Controller
       return view('admin.categorias.create');
       
     }
+
+    public function gravar(){
+      
+    }
 }
