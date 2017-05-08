@@ -10,7 +10,7 @@
 <div class="title"><h3>Área Administrativa de Categorias</h3></div>
 
 <br /> 
-<a href="#" class="btn btn-default">Nova Categoria</a>
+<a href=" {{ route('admin.categorias.create') }} " class="btn btn-default">Nova Categoria</a>
 <br /> 
 <br /> 
 <table class="table table-striped">
