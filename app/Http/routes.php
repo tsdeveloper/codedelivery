@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 //Router Categoria
 Route::get('admin/categorias',['as' => 'admin.categorias.index','uses' =>'CategoriasController@index']);
-Route::get('admin/categorias/cadastrar', ['as' => 'admin.categorias.create','uses' => 'CategoriasController@create']);
+Route::get('admin/categorias/cadastrar_categorias', ['as' => 'admin.categorias.create','uses' => 'CategoriasController@create']);
 
 //Router User
 Route::get('user',function(){
