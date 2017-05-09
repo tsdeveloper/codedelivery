@@ -9,8 +9,8 @@
     {!! Form::open(['route'=>'admin.categorias.insert']) !!}
 
     <div class="form-group">
-     {!! Form::label('','Descrição',['class'=>'col-md-2']) !!}
-     {!! Form::text('',<nul></nul>l,['class'=>'form-control']) !!}      
+     {!! Form::label('Descricao','Descrição',['class'=>'col-md-2']) !!}
+     {!! Form::text('descricao',null,['class'=>'form-control']) !!}      
     </div>
 
  <div class="form-group">

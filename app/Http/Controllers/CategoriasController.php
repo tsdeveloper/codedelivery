@@ -5,7 +5,7 @@ namespace AgendaWeb\Http\Controllers;
 use AgendaWeb\Repositories\CategoriaRepository;
 
 use Illuminate\Http\Request;
-
+use AgendaWeb\Http\Requests\Request;
 use AgendaWeb\Http\Requests;
 use AgendaWeb\Http\Controllers\Controller;
 
@@ -28,7 +28,7 @@ class CategoriasController extends Controller
       
     }
 
-    public function gravar(){
-      
+    public function insert(Request $request){
+      dd($request->all());
     }
 }
