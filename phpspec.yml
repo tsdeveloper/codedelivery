@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: AgendaWeb
-        psr4_prefix: AgendaWeb
+        namespace: BrindaBrasil
+        psr4_prefix: BrindaBrasil
         src_path: app

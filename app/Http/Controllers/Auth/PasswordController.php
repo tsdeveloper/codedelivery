@@ -1,8 +1,8 @@
 <?php
 
-namespace AgendaWeb\Http\Controllers\Auth;
+namespace BrindaBrasil\Http\Controllers\Auth;
 
-use AgendaWeb\Http\Controllers\Controller;
+use BrindaBrasil\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

@@ -23,7 +23,7 @@
             "database"
         ],
         "psr-4": {
-            "AgendaWeb\\": "app/"
+            "BrindaBrasil\\": "app/"
         }
     },
     "autoload-dev": {

@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => AgendaWeb\Models\User::class,
+    'model' => BrindaBrasil\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------

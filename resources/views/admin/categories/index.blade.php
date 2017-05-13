@@ -3,17 +3,15 @@
 <div class="container">
             <div class="content"> 
 
-            <br/>
-<span class="col-md-4 control-label">Seja bem Vindo <strong>{{$usuario}}</strong></span>
-<br />
-
 <div class="title"><h3>Área Administrativa de Categorias</h3></div>
 
 <br /> 
-<a href=" {{ route('admin.categorias.create') }} " class="btn btn-default">Nova Categoria</a>
+<a href=" {{ route('admin.categories.create') }} " class="btn btn-default">Nova Categoria</a>
 <br /> 
 <br /> 
-<table class="table table-striped">
+<div class="table-responsive">
+
+<table class="table table-striped table-hover">
     <thead>
    
         <tr>
@@ -23,19 +21,21 @@
         </tr>
     </thead>
     <tbody>
-     @foreach($categorias as $categoria)
+     @foreach($categories as $category)
         <tr>
-            <td>{{$categoria->id}}</td>
-            <td>{{$categoria->descricao}}</td>
+            <td>{{$category->id}}</td>
+            <td>{{$category->name}}</td>
             <td>
-            <a href="#" class="btn btn-info">Editar</a>
+            <a href="{{ route('admin.categories.edit',['id'=>$category->id]) }}" class="btn btn-info">Editar</a>
             <a href="#" class="btn btn-danger">Excluir</a>
             </td>
         </tr>
         @endforeach 
     </tbody>
 </table>
-    {!! $categorias->render() !!}
+
+</div>
+    {!! $categories->render() !!}
 
 </div>
 </div>

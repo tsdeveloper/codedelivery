@@ -220,7 +220,7 @@ return [
     */
     'generator'  => [
         'basePath'      => app_path(),
-        'rootNamespace' => 'AgendaWeb\\',
+        'rootNamespace' => 'BrindaBrasil\\',
         'paths'         => [
             'models'       => 'Models',
             'repositories' => 'Repositories',

@@ -1,6 +1,6 @@
 <?php
 
-namespace AgendaWeb\Http\Requests;
+namespace BrindaBrasil\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace AgendaWeb\Http\Controllers\Auth;
+namespace BrindaBrasil\Http\Controllers\Auth;
 
-use AgendaWeb\Models\User;
+use BrindaBrasil\Models\User;
 use Validator;
-use AgendaWeb\Http\Controllers\Controller;
+use BrindaBrasil\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

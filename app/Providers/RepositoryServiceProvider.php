@@ -1,6 +1,6 @@
 <?php
 
-namespace AgendaWeb\Providers;
+namespace BrindaBrasil\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -25,26 +25,24 @@ class RepositoryServiceProvider extends ServiceProvider
 	     */
 	    public function register()
 	    {
-		//I		njeta na dependência o serviço CategoriaRepositoryEloquent 
+				//Injeta na dependência o serviço CategoriaRepositoryEloquent 
 		        //s		empre que chamar o CategoriaRepository
-		        $this->app->bind(
-		            'AgendaWeb\Repositories\CategoriaRepository',
-		            'AgendaWeb\Repositories\CategoriaRepositoryEloquent'
+		        //### CATEGORY ###
+				$this->app->bind(
+		            'BrindaBrasil\Repositories\CategoryRepository',
+		            'BrindaBrasil\Repositories\CategoryRepositoryEloquent'
 		        );
-		
-		$this->app->bind(
-		            'AgendaWeb\Repositories\EstandeRepository',
-		            'AgendaWeb\Repositories\EstandeRepositoryEloquent'
-		        );
-		
-		$this->app->bind(
-		            'AgendaWeb\Repositories\ParticipanteRepository',
-		            'AgendaWeb\Repositories\ParticipanteRepositoryEloquent'
-		        );
-		
-		$this->app->bind(
-		            'AgendaWeb\Repositories\UserRepository',
-		            'AgendaWeb\Repositories\UserRepositoryEloquent'
-		        );
+	
+				//### PRODUCT ###	
+				$this->app->bind(
+							'BrindaBrasil\Repositories\ProductRepository',
+							'BrindaBrasil\Repositories\ProductRepositoryEloquent'
+						);
+
+				//### USER ###
+				$this->app->bind(
+							'BrindaBrasil\Repositories\UserRepository',
+							'BrindaBrasil\Repositories\UserRepositoryEloquent'
+						);
 	}
 }

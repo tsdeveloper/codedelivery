@@ -1,18 +1,18 @@
 <?php
 
-namespace AgendaWeb\Repositories;
+namespace BrindaBrasil\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use AgendaWeb\Repositories\EstandeRepository;
-use AgendaWeb\Models\Estande;
-use AgendaWeb\Validators\EstandeValidator;
+use BrindaBrasil\Repositories\OrderRepository;
+use BrindaBrasil\Models\Order;
+use BrindaBrasil\Validators\OrderValidator;
 
 /**
- * Class EstandeRepositoryEloquent
- * @package namespace AgendaWeb\Repositories;
+ * Class OrderRepositoryEloquent
+ * @package namespace BrindaBrasil\Repositories;
  */
-class EstandeRepositoryEloquent extends BaseRepository implements EstandeRepository
+class OrderRepositoryEloquent extends BaseRepository implements OrderRepository
 {
     /**
      * Specify Model class name
@@ -21,7 +21,7 @@ class EstandeRepositoryEloquent extends BaseRepository implements EstandeReposit
      */
     public function model()
     {
-        return Estande::class;
+        return Order::class;
     }
 
     

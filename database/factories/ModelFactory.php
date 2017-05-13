@@ -11,37 +11,42 @@
 |
 */
 
-$factory->define(AgendaWeb\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(BrindaBrasil\Models\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+         'img_src' =>  $faker->imageUrl($width = 200, $height = 200, 'people', true, 'Faker', true)
     ];
 });
 
-$factory->define(AgendaWeb\Models\Participante::class, function(Faker\Generator $faker){
+$factory->define(BrindaBrasil\Models\Product::class, function (Faker\Generator $faker) {
     return [
-        'nome' => $faker->name,
-        'cpf' => str_random(10),
-        'email' => $faker->companyEmail
-    ];
-});
-
-
-$factory->define(AgendaWeb\Models\Categoria::class, function(Faker\Generator $faker){
-    return [
-        'descricao' => $faker->jobTitle,
-        
+        'name' => $faker->jobTitle,
+        'description' => $faker->text,
+        'price' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = NULL),
+        'barcode' => $faker->isbn13,
+        'qtd' => $faker->randomNumber,
+        'img_src' =>  $faker->imageUrl($width = 800, $height = 600, 'nightlife', true, 'Faker', true)
     ];
 });
 
 
-$factory->define(AgendaWeb\Models\Estande::class, function(Faker\Generator $faker){
+$factory->define(BrindaBrasil\Models\Category::class, function (Faker\Generator $faker) {
     return [
-        'nome' => $faker->domainWord,
-        'descricao' => $faker->company,
-        'ativo' => true,
+        'name' => $faker->domainName       
+    ];
+});
+
+
+$factory->define(BrindaBrasil\Models\Client::class, function (Faker\Generator $faker) {
+    return [
+        'address'  => $faker->address,      
+        'phone' => $faker->phoneNumber,
+        'city' => $faker->city,
+        'state' => $faker->state,
+        'zipcode' => $faker->postcode
         
     ];
 });

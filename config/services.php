@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => AgendaWeb\User::class,
+        'model'  => BrindaBrasil\User::class,
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

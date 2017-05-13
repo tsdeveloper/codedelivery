@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use AgendaWeb\Models\Participantes;
-class ParticipanteTableSeeder extends Seeder
+
+class OrderItemTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class ParticipanteTableSeeder extends Seeder
      */
     public function run()
     {
-        // factory(Participante::class,10)->create();
+        //
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>Brinda Brasil</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Agenda Web - Laravel 5.1 com Ionic Web App</div>
+                <div class="title">Brinda Brasil - Laravel 5.1 com Ionic Web App</div>
             </div>
         </div>
     </body>

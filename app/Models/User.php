@@ -1,6 +1,6 @@
 <?php
 
-namespace AgendaWeb\Models;
+namespace BrindaBrasil\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
@@ -19,8 +19,8 @@ class User extends Model implements AuthenticatableContract,
 {
     use Authenticatable, Authorizable, CanResetPassword;
 
-public function  participante(){
-    return $this->hasOne(Participante::class);
+public function  client() {
+    return $this->hasOne(Client::class);
 }
     /**
      * The database table used by the model.

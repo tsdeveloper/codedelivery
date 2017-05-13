@@ -1,6 +1,6 @@
 <?php
 
-namespace AgendaWeb\Exceptions;
+namespace BrindaBrasil\Exceptions;
 
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

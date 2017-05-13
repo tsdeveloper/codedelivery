@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use AgendaWeb\Models\User;
-use AgendaWeb\Models\Participante;
+use BrindaBrasil\Models\Client;
+use BrindaBrasil\Models\User;
 class UserTableSeeder extends Seeder
 {
     /**
@@ -12,8 +12,9 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 10)->create()->each(function($p){
-          $p->participante()->save(factory(Participante::class)->make());    
+        //
+        factory(User::class, 10)->create()->each( function ($u) {
+            $u->client()->save(factory(Client::class)->make());            
         });
     }
 }

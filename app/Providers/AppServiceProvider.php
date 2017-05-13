@@ -1,6 +1,6 @@
 <?php
 
-namespace AgendaWeb\Providers;
+namespace BrindaBrasil\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

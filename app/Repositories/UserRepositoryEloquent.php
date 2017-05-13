@@ -1,16 +1,16 @@
 <?php
 
-namespace AgendaWeb\Repositories;
+namespace BrindaBrasil\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use AgendaWeb\Repositories\UserRepository;
-use AgendaWeb\Models\User;
-use AgendaWeb\Validators\UserValidator;
+use BrindaBrasil\Repositories\UserRepository;
+use BrindaBrasil\Models\User;
+use BrindaBrasil\Validators\UserValidator;
 
 /**
  * Class UserRepositoryEloquent
- * @package namespace AgendaWeb\Repositories;
+ * @package namespace BrindaBrasil\Repositories;
  */
 class UserRepositoryEloquent extends BaseRepository implements UserRepository
 {

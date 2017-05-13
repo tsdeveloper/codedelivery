@@ -142,11 +142,11 @@ return [
         /*
          * Application Service Providers...
          */
-        AgendaWeb\Providers\AppServiceProvider::class,
-        AgendaWeb\Providers\AuthServiceProvider::class,
-        AgendaWeb\Providers\EventServiceProvider::class,
-        AgendaWeb\Providers\RouteServiceProvider::class,
-        AgendaWeb\Providers\RepositoryServiceProvider::class,
+        BrindaBrasil\Providers\AppServiceProvider::class,
+        BrindaBrasil\Providers\AuthServiceProvider::class,
+        BrindaBrasil\Providers\EventServiceProvider::class,
+        BrindaBrasil\Providers\RouteServiceProvider::class,
+        BrindaBrasil\Providers\RepositoryServiceProvider::class,
       
 
     ],

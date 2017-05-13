@@ -1,6 +1,6 @@
 <?php
 
-namespace AgendaWeb\Events;
+namespace BrindaBrasil\Events;
 
 abstract class Event
 {

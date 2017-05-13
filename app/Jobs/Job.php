@@ -1,6 +1,6 @@
 <?php
 
-namespace AgendaWeb\Jobs;
+namespace BrindaBrasil\Jobs;
 
 use Illuminate\Bus\Queueable;
 

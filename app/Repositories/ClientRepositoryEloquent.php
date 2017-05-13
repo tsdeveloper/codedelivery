@@ -1,18 +1,18 @@
 <?php
 
-namespace AgendaWeb\Repositories;
+namespace BrindaBrasil\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use AgendaWeb\Repositories\ParticipanteRepository;
-use AgendaWeb\Models\Participante;
-use AgendaWeb\Validators\ParticipanteValidator;
+use BrindaBrasil\Repositories\ClientRepository;
+use BrindaBrasil\Models\Client;
+use BrindaBrasil\Validators\ClientValidator;
 
 /**
- * Class ParticipanteRepositoryEloquent
- * @package namespace AgendaWeb\Repositories;
+ * Class ClientRepositoryEloquent
+ * @package namespace BrindaBrasil\Repositories;
  */
-class ParticipanteRepositoryEloquent extends BaseRepository implements ParticipanteRepository
+class ClientRepositoryEloquent extends BaseRepository implements ClientRepository
 {
     /**
      * Specify Model class name
@@ -21,7 +21,7 @@ class ParticipanteRepositoryEloquent extends BaseRepository implements Participa
      */
     public function model()
     {
-        return Participante::class;
+        return Client::class;
     }
 
     

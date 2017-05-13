@@ -1,18 +1,18 @@
 <?php
 
-namespace AgendaWeb\Repositories;
+namespace BrindaBrasil\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use AgendaWeb\Repositories\CategoriaRepository;
-use AgendaWeb\Models\Categoria;
-use AgendaWeb\Validators\CategoriaValidator;
+use BrindaBrasil\Repositories\CategoryRepository;
+use BrindaBrasil\Models\Category;
+use BrindaBrasil\Validators\CategoryValidator;
 
 /**
- * Class CategoriaRepositoryEloquent
- * @package namespace AgendaWeb\Repositories;
+ * Class CategoryRepositoryEloquent
+ * @package namespace BrindaBrasil\Repositories;
  */
-class CategoriaRepositoryEloquent extends BaseRepository implements CategoriaRepository
+class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepository
 {
     /**
      * Specify Model class name
@@ -21,7 +21,7 @@ class CategoriaRepositoryEloquent extends BaseRepository implements CategoriaRep
      */
     public function model()
     {
-        return Categoria::class;
+        return Category::class;
     }
 
     

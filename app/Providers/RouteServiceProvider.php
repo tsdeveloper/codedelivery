@@ -1,6 +1,6 @@
 <?php
 
-namespace AgendaWeb\Providers;
+namespace BrindaBrasil\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'AgendaWeb\Http\Controllers';
+    protected $namespace = 'BrindaBrasil\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

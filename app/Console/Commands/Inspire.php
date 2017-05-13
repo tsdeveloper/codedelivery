@@ -1,6 +1,6 @@
 <?php
 
-namespace AgendaWeb\Console\Commands;
+namespace BrindaBrasil\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

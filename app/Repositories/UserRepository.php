@@ -1,12 +1,12 @@
 <?php
 
-namespace AgendaWeb\Repositories;
+namespace BrindaBrasil\Repositories;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
  * Interface UserRepository
- * @package namespace AgendaWeb\Repositories;
+ * @package namespace BrindaBrasil\Repositories;
  */
 interface UserRepository extends RepositoryInterface
 {
