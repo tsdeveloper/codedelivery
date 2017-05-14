@@ -1,8 +1,9 @@
 <?php
 
 namespace BrindaBrasil\Http\Controllers;
-
+use BrindaBrasil\config\App;
 use BrindaBrasil\Repositories\ProductRepository;
+use BrindaBrasil\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 use BrindaBrasil\Http\Requests;
 use BrindaBrasil\Http\Controllers\Controller;
@@ -11,22 +12,30 @@ class ProductsController extends Controller
 {
     //
     private $_repository;
+    private $_categoryRepository;
 
-    public function __construct(ProductRepository $repository) {
+    public function __construct(ProductRepository $repository, CategoryRepository $categoryRepository) {
         $this->_repository=$repository;
+        $this->_categoryRepository = $categoryRepository;
     }
     public function Index() {
     
-  
+    //   $value = config('app.locale');
+
+    //      echo var_dump($value);
+       
+    //     exit;
+
       $user = "Visitante";
       $products = $this->_repository->paginate(5);
-      
+     
       return view('admin.products.index', compact('products', 'user'));
 
     }
 
     public function create() {            
-        return view('admin.products.create');      
+         $categories = $this->_categoryRepository->all(['name', 'id']);
+        return view('admin.products.create', compact('categories'));      
     }
 
       public function store(AdminProductRequest $request) {
@@ -110,10 +119,11 @@ class ProductsController extends Controller
     }
 
        public function edit($id){        
-               $category = $this->_repository->find($id);
+               $product = $this->_repository->find($id);
             //    echo var_dump($category);
             //    exit;
-             return view('admin.products.edit', compact('category'));      
+             $categories = $this->_categoryRepository->all(['name', 'id']);
+             return view('admin.products.edit', compact('product', 'categories'));      
         }
 
          public function update(AdminProductRequest $request,$id){       

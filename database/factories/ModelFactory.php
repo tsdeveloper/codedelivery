@@ -12,6 +12,7 @@
 */
 
 $factory->define(BrindaBrasil\Models\User::class, function (Faker\Generator $faker) {
+     $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
@@ -22,6 +23,8 @@ $factory->define(BrindaBrasil\Models\User::class, function (Faker\Generator $fak
 });
 
 $factory->define(BrindaBrasil\Models\Product::class, function (Faker\Generator $faker) {
+     $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
+
     return [
         'name' => $faker->jobTitle,
         'description' => $faker->text,
@@ -41,6 +44,7 @@ $factory->define(BrindaBrasil\Models\Category::class, function (Faker\Generator 
 
 
 $factory->define(BrindaBrasil\Models\Client::class, function (Faker\Generator $faker) {
+    $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
     return [
         'address'  => $faker->address,      
         'phone' => $faker->phoneNumber,

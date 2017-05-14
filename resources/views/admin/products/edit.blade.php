@@ -3,13 +3,15 @@
 <div class="container">
             <div class="content"> 
 
-<div class="title"><h3>Editando o produto <strong>{{ $category->name }}</strong></h3></div>
+<div class="title"><h3>Editando o produto <strong>{{ $product->name }}</strong></h3></div>
 </div>
 <br /> 
     
     @include('errors._check')
-    {!! Form::model($category,['route'=>['admin.products.update',$category->id]]) !!}
+    {!! Form::model($product,['route'=>['admin.products.update',$product->id]]) !!}
    
+    @include('admin.products._form')
+
  <div class="form-group">
 {!! Form::submit('Atualizar produto',['class'=>'btn btn-primary']) !!}
  </div>

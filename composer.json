@@ -10,7 +10,9 @@
         "laravel/framework": "5.1.*",
         "prettus/l5-repository": "^2.6",
         "bestmomo/scafold": "dev-master",
-        "illuminate/html": "^5.0@dev"
+        "illuminate/html": "^5.0@dev",
+        "moneyphp/money": "^3.0@dev",
+        "nesbot/carbon": "^1.23@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
