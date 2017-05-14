@@ -122,7 +122,7 @@ class ProductsController extends Controller
                $product = $this->_repository->find($id);
             //    echo var_dump($category);
             //    exit;
-             $categories = $this->_categoryRepository->all(['name', 'id']);
+             $categories = $this->_categoryRepository->all(['name','id']);
              return view('admin.products.edit', compact('product', 'categories'));      
         }
 

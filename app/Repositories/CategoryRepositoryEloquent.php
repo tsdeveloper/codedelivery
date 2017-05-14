@@ -5,15 +5,18 @@ namespace BrindaBrasil\Repositories;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use BrindaBrasil\Repositories\CategoryRepository;
-use BrindaBrasil\Models\Category;
-use BrindaBrasil\Validators\CategoryValidator;
 
+use Illuminate\Database\Eloquent\Model;
+use BrindaBrasil\Validators\CategoryValidator;
+use \BrindaBrasil\Models\Category;
 /**
  * Class CategoryRepositoryEloquent
  * @package namespace BrindaBrasil\Repositories;
  */
 class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepository
 {
+    
+ 
     /**
      * Specify Model class name
      *
