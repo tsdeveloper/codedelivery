@@ -15,9 +15,9 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-            // if (!Auth::check()) {
-            //     return redirect('auth/login');
-            // }
+            if (!Auth::check()) {
+                return redirect('auth/login');
+            }
         return $next($request);
     }
 }
