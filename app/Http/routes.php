@@ -34,6 +34,14 @@ Route::group(['prefix'=>'admin','as'=> 'admin.', 'middleware'=>'auth.checkrole']
     Route::get('products/destroy/{id}', ['as' => 'products.destroy','uses' => 'ProductsController@destroy']);
     Route::post('products/deleteconfirmed/{id}', ['as' => 'products.deleteconfirmed','uses' => 'ProductsController@deleteconfirmed']);
 
+    Route::get('clients', ['as' => 'clients.index','uses' =>'ClientsController@index']);
+    Route::get('clients/create', ['as' => 'clients.create','uses' => 'ClientsController@create']);
+    Route::post('clients/store', ['as' => 'clients.store','uses' => 'ClientsController@store']);
+    Route::get('clients/edit/{id}', ['as' => 'clients.edit','uses' => 'ClientsController@edit']);
+    Route::post('clients/update/{id}', ['as' => 'clients.update','uses' => 'ClientsController@update']);
+    Route::get('clients/destroy/{id}', ['as' => 'clients.destroy','uses' => 'ClientsController@destroy']);
+    Route::post('clients/deleteconfirmed/{id}', ['as' => 'clients.deleteconfirmed','uses' => 'ClientsController@deleteconfirmed']);
+
 
 });
 
