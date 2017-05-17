@@ -23,9 +23,14 @@ class AdminProductRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
-            'name'=>'required|min:3'
-        ];
+         return [
+        'name' => 'required|min:3',
+        'category_id' => 'required',
+        'description' => 'required|min:3',
+        'price' => 'required',
+        'qtd' => 'required'
+       
+    ];
+
     }
 }

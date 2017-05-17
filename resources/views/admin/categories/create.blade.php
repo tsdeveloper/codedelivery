@@ -6,12 +6,34 @@
 <div class="title"><h3>Nova Categorias</h3></div>
 </div>
 <br /> 
-    @include('errors._check')
     {!! Form::open(['route'=>'admin.categories.store']) !!}
 
-    
-    @include('admin.categories._form')
+    {{-- @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif --}}
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
+
+    
+    <div class="form-group">
+     {!! Form::label('Name','Descrição',['class'=>'col-md-2']) !!}
+     {!! Form::text('name',null,['class'=>'form-control']) !!}      
+    </div>
+ 
  <div class="form-group">
 {!! Form::submit('Criar categoria',['class'=>'btn btn-primary']) !!}
  </div>

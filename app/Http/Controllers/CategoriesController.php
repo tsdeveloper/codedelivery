@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use BrindaBrasil\Http\Requests;
 use BrindaBrasil\Http\Controllers\Controller;
 use BrindaBrasil\Http\Requests\AdminCategoryRequest;
+use Prettus\Validator\Exceptions\ValidatorException;
+use Prettus\Validator\Contracts\ValidatorInterface;
 class CategoriesController extends Controller
 {
     //
@@ -30,6 +32,10 @@ class CategoriesController extends Controller
     }
 
       public function store(AdminCategoryRequest $request) {
+                                
+                $data = $request->all();
+                $this->_repository->create($data);
+                return redirect()->route('admin.categories.index');
 
     //     $messages = [
     //         'required' => 'O :attribute é obrigatório.',
@@ -103,19 +109,20 @@ class CategoriesController extends Controller
     //                 ->withErrors($validator)
     //                 ->withInput();
     //     }
-
-        $data = $request->all();
-        $this->_repository->create($data);
-        return redirect()->route('admin.categories.index');
+// echo "testes";
+// exit;
+     
     }
 
        public function edit($id){        
                $category = $this->_repository->find($id);
             //    echo var_dump($category);
             //    exit;
-             return view('admin.categories.edit', compact('category'));      
+         $categories = $this->_repository->lists();   
+            //    echo var_dump($category);
+            //    exit; 
+             return view('admin.categories.edit', compact('category','categories'));      
         }
-
          public function update(AdminCategoryRequest $request,$id){       
 
             //  dd($request->all(),$id); 

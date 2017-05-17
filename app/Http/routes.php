@@ -16,13 +16,26 @@ Route::get('/', function () {
 });
 
 //Router Categoria
-Route::get('admin/minhas-categorias', ['as' => 'admin.categories.index','uses' =>'CategoriesController@index']);
-Route::get('admin/categories/create', ['as' => 'admin.categories.create','uses' => 'CategoriesController@create']);
-Route::post('admin/categories/store', ['as' => 'admin.categories.store','uses' => 'CategoriesController@store']);
-Route::get('admin/categories/edit/{id}', ['as' => 'admin.categories.edit','uses' => 'CategoriesController@edit']);
-Route::post('admin/categories/update/{id}', ['as' => 'admin.categories.update','uses' => 'CategoriesController@update']);
-Route::post('admin/categories/delete/{id}', ['as' => 'admin.categories.delete','uses' => 'CategoriesController@delete']);
-Route::post('admin/categories/deleteconfirmed/{id}', ['as' => 'admin.categories.deleteconfirmed','uses' => 'CategoriesController@deleteconfirmed']);
+Route::group(['prefix'=>'admin','as'=> 'admin.'], function()
+{
+    Route::get('categories', ['as' => 'categories.index','uses' =>'CategoriesController@index']);
+    Route::get('categories/create', ['as' => 'categories.create','uses' => 'CategoriesController@create']);
+    Route::post('categories/store', ['as' => 'categories.store','uses' => 'CategoriesController@store']);
+    Route::get('categories/edit/{id}', ['as' => 'categories.edit','uses' => 'CategoriesController@edit']);
+    Route::post('categories/update/{id}', ['as' => 'categories.update','uses' => 'CategoriesController@update']);
+    Route::post('categories/delete/{id}', ['as' => 'categories.delete','uses' => 'CategoriesController@delete']);
+    Route::post('categories/deleteconfirmed/{id}', ['as' => 'categories.deleteconfirmed','uses' => 'CategoriesController@deleteconfirmed']);
+
+    Route::get('products', ['as' => 'products.index','uses' =>'ProductsController@index']);
+    Route::get('products/create', ['as' => 'products.create','uses' => 'ProductsController@create']);
+    Route::post('products/store', ['as' => 'products.store','uses' => 'ProductsController@store']);
+    Route::get('products/edit/{id}', ['as' => 'products.edit','uses' => 'ProductsController@edit']);
+    Route::post('products/update/{id}', ['as' => 'products.update','uses' => 'ProductsController@update']);
+    Route::get('products/destroy/{id}', ['as' => 'products.destroy','uses' => 'ProductsController@destroy']);
+    Route::post('products/deleteconfirmed/{id}', ['as' => 'products.deleteconfirmed','uses' => 'ProductsController@deleteconfirmed']);
+
+
+});
 
 //Router User
 
@@ -33,10 +46,3 @@ Route::post('admin/categories/deleteconfirmed/{id}', ['as' => 'admin.categories.
 //     $repository = app()->make('BrindaBrasil\Repositories\ClientRepository');
 //     return $repository->all();
 // });
-Route::get('admin/products', ['as' => 'admin.products.index','uses' =>'ProductsController@index']);
-Route::get('admin/products/create', ['as' => 'admin.products.create','uses' => 'ProductsController@create']);
-Route::post('admin/products/store', ['as' => 'admin.products.store','uses' => 'ProductsController@store']);
-Route::get('admin/products/edit/{id}', ['as' => 'admin.products.edit','uses' => 'ProductsController@edit']);
-Route::post('admin/products/update/{id}', ['as' => 'admin.products.update','uses' => 'ProductsController@update']);
-Route::post('admin/products/delete/{id}', ['as' => 'admin.products.delete','uses' => 'ProductsController@delete']);
-Route::post('admin/products/deleteconfirmed/{id}', ['as' => 'admin.products.deleteconfirmed','uses' => 'ProductsController@deleteconfirmed']);

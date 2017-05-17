@@ -30,6 +30,6 @@
     </div>
 
       <div class="form-group">
-     {!! Form::label('Active', 'Quantidade', ['class'=>'col-md-2']) !!}
+     {!! Form::label('Active', 'Ativo?', ['class'=>'col-md-2']) !!}
      {!! Form::text('active', null, ['class'=>'form-control']) !!}      
     </div>

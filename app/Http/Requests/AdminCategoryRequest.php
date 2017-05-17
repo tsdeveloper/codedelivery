@@ -23,8 +23,10 @@ class AdminCategoryRequest extends Request
      */
     public function rules()
     {
-        return [
-            'name'=>'required|min:3'
-        ];
+         return [
+        'name' => 'required',
+       
+    ];
+
     }
 }
