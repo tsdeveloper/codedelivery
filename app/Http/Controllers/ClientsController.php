@@ -2,21 +2,20 @@
 
 namespace BrindaBrasil\Http\Controllers;
 use BrindaBrasil\config\App;
-use BrindaBrasil\Repositories\ProductRepository;
-use BrindaBrasil\Repositories\CategoryRepository;
+use BrindaBrasil\Repositories\ClientRepository;
 use Illuminate\Http\Request;
 use BrindaBrasil\Http\Requests;
 use BrindaBrasil\Http\Controllers\Controller;
-use BrindaBrasil\Http\Requests\AdminProductRequest;
+use BrindaBrasil\Http\Requests\AdminClientRequest;
 class ClientsController extends Controller
 {
     //
-    private $_productRepository;
+    private $_clientRepository;
     private $_categoryRepository;
 
-    public function __construct(ProductRepository $productRepository, CategoryRepository $categoryRepository) {
-        $this->_productRepository=$productRepository;
-        $this->_categoryRepository  = $categoryRepository;
+    public function __construct(ClientRepository $ClientRepository) {
+        $this->_clientRepository=$ClientRepository;
+        
     }
     public function Index() {
     
@@ -27,48 +26,48 @@ class ClientsController extends Controller
     //     exit;
 
       $user = "Visitante";
-      $products = $this->_productRepository->paginate(5);
+      $clients = $this->_clientRepository->paginate(5);
      
-      return view('admin.products.index', compact('products', 'user'));
+      return view('admin.clients.index', compact('clients', 'user'));
 
     }
 
     public function create() {            
-         $categories = $this->_categoryRepository->lists();
-        return view('admin.products.create', compact('categories'));      
+         
+        return view('admin.clients.create');      
     }
 
-      public function store(AdminProductRequest $request) {
+      public function store(AdminClientRequest $request) {
 
 
         $data = $request->all();
-        $this->_productRepository->create($data);
-        return redirect()->route('admin.products.index');
+        $this->_clientRepository->create($data);
+        return redirect()->route('admin.clients.index');
        }
 
        public function edit($id){        
-               $product = $this->_productRepository->find($id);
+               $product = $this->_clientRepository->find($id);
           
              $categories = $this->_categoryRepository->lists();
             // echo var_dump($categories);
             // exit;
-             return view('admin.products.edit', compact('product', 'categories'));      
+             return view('admin.clients.edit', compact('product', 'categories'));      
         }
 
-         public function update(AdminProductRequest $request,$id){       
+         public function update(AdminClientRequest $request,$id){       
 
             //  dd($request->all(),$id); 
             $data = $request->all();
-            $this->_productRepository->update($data,$id);
-              return redirect()->route('admin.products.index');
+            $this->_clientRepository->update($data,$id);
+              return redirect()->route('admin.clients.index');
         }
 
        public function destroy($id){       
 
             //  dd($request->all(),$id); 
             
-            $this->_productRepository->delete($id);
-              return redirect()->route('admin.products.index');
+            $this->_clientRepository->delete($id);
+              return redirect()->route('admin.clients.index');
         }
 
   
