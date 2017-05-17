@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 //Router Categoria
-Route::group(['prefix'=>'admin','as'=> 'admin.'], function()
+Route::group(['prefix'=>'admin','as'=> 'admin.', 'middleware'=>'auth.checkrole'], function()
 {
     Route::get('categories', ['as' => 'categories.index','uses' =>'CategoriesController@index']);
     Route::get('categories/create', ['as' => 'categories.create','uses' => 'CategoriesController@create']);
