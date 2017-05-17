@@ -16,15 +16,15 @@
    
         <tr>
             <th>ID</th>
-            <th>Descrição</th>
-            <th>Ação</th>
+            <th>Nome</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
      @foreach($clients as $client)
         <tr>
             <td>{{$client->id}}</td>
-            <td>{{$client->name}}</td>
+            <td>{{$client->user->name}}</td>
             <td>
             <a href="{{ route('admin.clients.edit',['id'=>$client->id]) }}" class="btn btn-info">Editar</a>
             <a href="#" class="btn btn-danger">Excluir</a>

@@ -27,7 +27,8 @@ class ClientsController extends Controller
 
       $user = "Visitante";
       $clients = $this->_clientRepository->paginate(5);
-     
+        // echo var_dump($categories);
+            // exit;
       return view('admin.clients.index', compact('clients', 'user'));
 
     }
@@ -49,8 +50,7 @@ class ClientsController extends Controller
                $product = $this->_clientRepository->find($id);
           
              $categories = $this->_categoryRepository->lists();
-            // echo var_dump($categories);
-            // exit;
+         
              return view('admin.clients.edit', compact('product', 'categories'));      
         }
 
