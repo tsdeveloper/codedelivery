@@ -44,5 +44,11 @@ class RepositoryServiceProvider extends ServiceProvider
 							'BrindaBrasil\Repositories\UserRepository',
 							'BrindaBrasil\Repositories\UserRepositoryEloquent'
 						);
+
+						//### CLIENT ###
+				$this->app->bind(
+							'BrindaBrasil\Repositories\ClientRepository',
+							'BrindaBrasil\Repositories\ClientRepositoryEloquent'
+						);
 	}
 }
