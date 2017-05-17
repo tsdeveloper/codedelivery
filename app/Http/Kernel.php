@@ -30,5 +30,6 @@ class Kernel extends HttpKernel
         'auth' => \BrindaBrasil\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \BrindaBrasil\Http\Middleware\RedirectIfAuthenticated::class,
+        'auth.checkrole' => \BrindaBrasil\Http\Middleware\CheckRole::class,
     ];
 }
