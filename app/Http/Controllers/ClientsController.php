@@ -3,6 +3,7 @@
 namespace BrindaBrasil\Http\Controllers;
 use BrindaBrasil\config\App;
 use BrindaBrasil\Repositories\ClientRepository;
+use BrindaBrasil\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use BrindaBrasil\Http\Requests;
 use BrindaBrasil\Http\Controllers\Controller;
@@ -13,7 +14,7 @@ class ClientsController extends Controller
     private $_clientRepository;
     private $_categoryRepository;
 
-    public function __construct(ClientRepository $ClientRepository) {
+    public function __construct(ClientRepository $ClientRepository, UserRepository) {
         $this->_clientRepository=$ClientRepository;
         
     }

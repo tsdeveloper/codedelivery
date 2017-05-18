@@ -26,14 +26,7 @@
         </ul>
     </div>
 @endif
-
-
-    
-    <div class="form-group">
-     {!! Form::label('Name','Descrição',['class'=>'col-md-2']) !!}
-     {!! Form::text('name',null,['class'=>'form-control']) !!}      
-    </div>
- 
+  @include('admin.categories._form')
  <div class="form-group">
 {!! Form::submit('Criar categoria',['class'=>'btn btn-primary']) !!}
  </div>

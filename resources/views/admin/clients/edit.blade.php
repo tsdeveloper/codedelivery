@@ -3,7 +3,7 @@
 <div class="container">
             <div class="content"> 
 
-<div class="title"><h3>Editando cliente <strong>{{ $client->name }}</strong></h3></div>
+<div class="title"><h3>Editando cliente <strong>{{ $client-user->name }}</strong></h3></div>
 </div>
 <br /> 
     {!! Form::model($client,['route'=>['admin.clients.update',$client->id]]) !!}
@@ -18,10 +18,7 @@
     </div>
     @endif
     
-    <div class="form-group">
-     {!! Form::label('Name','Descrição',['class'=>'col-md-2']) !!}
-     {!! Form::text('name',null,['class'=>'form-control']) !!}      
-    </div>
+  @include('admin.clients._form')
 
  
  <div class="form-group">

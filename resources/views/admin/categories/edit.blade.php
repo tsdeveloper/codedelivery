@@ -18,15 +18,7 @@
     </div>
     @endif
     
-    <div class="form-group">
-     {!! Form::label('Descricao','Descrição',['class'=>'col-md-2']) !!}
-     {!! Form::text('name',null,['class'=>'form-control']) !!}      
-    </div>
-
-    <div class="form-group">
-     {!! Form::label('Category', 'Categorias', ['class'=>'col-md-2']) !!}
-     {!! Form::select('id', $categories, null, ['class'=>'form-control']) !!}      
-    </div>
+   @include('admin.categories._form')
 
  <div class="form-group">
 {!! Form::submit('Atualizar categoria',['class'=>'btn btn-primary']) !!}
