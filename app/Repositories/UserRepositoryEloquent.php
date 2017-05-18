@@ -14,6 +14,9 @@ use BrindaBrasil\Validators\UserValidator;
  */
 class UserRepositoryEloquent extends BaseRepository implements UserRepository
 {
+     public function lists() {
+        return $this->model->lists('name','id');
+    }
     /**
      * Specify Model class name
      *

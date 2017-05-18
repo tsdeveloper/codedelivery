@@ -13,9 +13,12 @@ class ClientsController extends Controller
     //
     private $_clientRepository;
     private $_categoryRepository;
+    private $_userRepository;
 
-    public function __construct(ClientRepository $ClientRepository, UserRepository) {
+    public function __construct(ClientRepository $ClientRepository, UserRepository $userRepository) {
         $this->_clientRepository=$ClientRepository;
+        $this->_userRepository=$userRepository;
+
         
     }
     public function Index() {
@@ -48,16 +51,19 @@ class ClientsController extends Controller
        }
 
        public function edit($id){        
-               $product = $this->_clientRepository->find($id);
-          
-             $categories = $this->_categoryRepository->lists();
+               $client = $this->_clientRepository->find($id);
+              // dd($client->user->name); 
+              // exit;
+            $users = $this->_userRepository->lists();
          
-             return view('admin.clients.edit', compact('product', 'categories'));      
+             return view('admin.clients.edit', compact('client', 'users'));      
         }
 
          public function update(AdminClientRequest $request,$id){       
 
             //  dd($request->all(),$id); 
+        //       echo 'ID: '.$id;
+        //  exit ;
             $data = $request->all();
             $this->_clientRepository->update($data,$id);
               return redirect()->route('admin.clients.index');
