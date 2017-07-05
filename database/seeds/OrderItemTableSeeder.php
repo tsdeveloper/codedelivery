@@ -1,5 +1,7 @@
 <?php
 
+use CodeDelivery\Models\Order;
+use CodeDelivery\Models\OrderItem;
 use Illuminate\Database\Seeder;
 
 class OrderItemTableSeeder extends Seeder
@@ -11,6 +13,8 @@ class OrderItemTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+
+
+
     }
 }

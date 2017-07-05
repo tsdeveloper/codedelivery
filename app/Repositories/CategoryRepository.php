@@ -1,12 +1,12 @@
 <?php
 
-namespace BrindaBrasil\Repositories;
+namespace CodeDelivery\Repositories;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
  * Interface CategoryRepository
- * @package namespace BrindaBrasil\Repositories;
+ * @package namespace CodeDelivery\Repositories;
  */
 interface CategoryRepository extends RepositoryInterface
 {

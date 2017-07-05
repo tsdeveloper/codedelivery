@@ -1,8 +1,8 @@
 <?php
 
-namespace BrindaBrasil\Http\Requests;
+namespace CodeDelivery\Http\Requests;
 
-use BrindaBrasil\Http\Requests\Request;
+use CodeDelivery\Http\Requests\Request;
 
 class AdminProductRequest extends Request
 {

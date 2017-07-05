@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => BrindaBrasil\User::class,
+        'model'  => CodeDelivery\User::class,
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

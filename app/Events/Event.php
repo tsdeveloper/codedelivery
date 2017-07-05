@@ -1,6 +1,6 @@
 <?php
 
-namespace BrindaBrasil\Events;
+namespace CodeDelivery\Events;
 
 abstract class Event
 {

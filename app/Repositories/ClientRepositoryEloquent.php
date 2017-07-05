@@ -1,16 +1,16 @@
 <?php
 
-namespace BrindaBrasil\Repositories;
+namespace CodeDelivery\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use BrindaBrasil\Repositories\ClientRepository;
-use BrindaBrasil\Models\Client;
-use BrindaBrasil\Validators\ClientValidator;
+use CodeDelivery\Repositories\ClientRepository;
+use CodeDelivery\Models\Client;
+use CodeDelivery\Validators\ClientValidator;
 
 /**
  * Class ClientRepositoryEloquent
- * @package namespace BrindaBrasil\Repositories;
+ * @package namespace CodeDelivery\Repositories;
  */
 class ClientRepositoryEloquent extends BaseRepository implements ClientRepository
 {

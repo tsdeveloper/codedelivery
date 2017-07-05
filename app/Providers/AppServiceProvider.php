@@ -1,6 +1,6 @@
 <?php
 
-namespace BrindaBrasil\Providers;
+namespace CodeDelivery\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Faker\Generator as FakerGenerator;

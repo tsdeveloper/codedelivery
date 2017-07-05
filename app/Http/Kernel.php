@@ -1,6 +1,6 @@
 <?php
 
-namespace BrindaBrasil\Http;
+namespace CodeDelivery\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -14,11 +14,11 @@ class Kernel extends HttpKernel
     protected $middleware = [
         // \App\Http\Middleware\Language::class,
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \BrindaBrasil\Http\Middleware\EncryptCookies::class,
+        \CodeDelivery\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \BrindaBrasil\Http\Middleware\VerifyCsrfToken::class,
+        \CodeDelivery\Http\Middleware\VerifyCsrfToken::class,
     ];
 
     /**
@@ -27,9 +27,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \BrindaBrasil\Http\Middleware\Authenticate::class,
+        'auth' => \CodeDelivery\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest' => \BrindaBrasil\Http\Middleware\RedirectIfAuthenticated::class,
-        'auth.checkrole' => \BrindaBrasil\Http\Middleware\CheckRole::class,
+        'guest' => \CodeDelivery\Http\Middleware\RedirectIfAuthenticated::class,
+        'auth.checkrole' => \CodeDelivery\Http\Middleware\CheckRole::class,
     ];
 }

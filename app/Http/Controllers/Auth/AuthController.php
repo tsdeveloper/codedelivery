@@ -1,10 +1,10 @@
 <?php
 
-namespace BrindaBrasil\Http\Controllers\Auth;
+namespace CodeDelivery\Http\Controllers\Auth;
 
-use BrindaBrasil\Models\User;
+use CodeDelivery\Models\User;
 use Validator;
-use BrindaBrasil\Http\Controllers\Controller;
+use CodeDelivery\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace BrindaBrasil\Http\Controllers\Auth;
+namespace CodeDelivery\Http\Controllers\Auth;
 
-use BrindaBrasil\Http\Controllers\Controller;
+use CodeDelivery\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

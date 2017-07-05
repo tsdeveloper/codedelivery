@@ -30,7 +30,7 @@
    @include('admin.clients._form')
 
  <div class="form-group">
-{!! Form::submit('Criar categoria',['class'=>'btn btn-primary']) !!}
+{!! Form::submit('Criar Cliente',['class'=>'btn btn-primary']) !!}
  </div>
     {!! Form::close() !!}
  <div class="form-group">

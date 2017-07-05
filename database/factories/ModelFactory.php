@@ -11,18 +11,27 @@
 |
 */
 
-$factory->define(BrindaBrasil\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(CodeDelivery\Models\User::class, function (Faker\Generator $faker) {
      $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
+        'password' => bcrypt(1234567),
         'remember_token' => str_random(10),
          'img_src' =>  $faker->imageUrl($width = 200, $height = 200, 'people', true, 'Faker', true)
     ];
 });
 
-$factory->define(BrindaBrasil\Models\Product::class, function (Faker\Generator $faker) {
+$factory->define(CodeDelivery\Models\Role::class, function (Faker\Generator $faker) {
+     $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
+    return [
+        'name' => $faker->jobTitle,
+        'description' => $faker->word
+        
+    ];
+});
+
+$factory->define(CodeDelivery\Models\Product::class, function (Faker\Generator $faker) {
      $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
 
     return [
@@ -36,14 +45,14 @@ $factory->define(BrindaBrasil\Models\Product::class, function (Faker\Generator $
 });
 
 
-$factory->define(BrindaBrasil\Models\Category::class, function (Faker\Generator $faker) {
+$factory->define(CodeDelivery\Models\Category::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->domainName       
     ];
 });
 
 
-$factory->define(BrindaBrasil\Models\Client::class, function (Faker\Generator $faker) {
+$factory->define(CodeDelivery\Models\Client::class, function (Faker\Generator $faker) {
     $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
     return [
         'address'  => $faker->address,      
@@ -52,5 +61,28 @@ $factory->define(BrindaBrasil\Models\Client::class, function (Faker\Generator $f
         'state' => $faker->state,
         'zipcode' => $faker->postcode
         
+    ];
+});
+
+
+
+$factory->define(CodeDelivery\Models\Order::class, function (Faker\Generator $faker) {
+    $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
+    return [
+       'client_id'  => rand(1,10),
+        'total'  => rand(50,120),
+        'status' => 0
+
+    ];
+});
+
+
+$factory->define(CodeDelivery\Models\OrderItem::class, function (Faker\Generator $faker) {
+    $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
+    return [
+//        'price'  => $faker->randomFloat(2,0,0),
+//        'qtd'  => $faker->randomDigitNotNull(),
+
+
     ];
 });

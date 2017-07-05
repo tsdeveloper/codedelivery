@@ -1,8 +1,8 @@
 <?php 
-namespace BrindaBrasil\Repositories\Criteria;
+namespace CodeDelivery\Repositories\Criteria;
 
-use BrindaBrasil\Repositories\Contracts\RepositoryInterface as Repository;
-use BrindaBrasil\Repositories\Contracts\RepositoryInterface;
+use CodeDelivery\Repositories\Contracts\RepositoryInterface as Repository;
+use CodeDelivery\Repositories\Contracts\RepositoryInterface;
 
 abstract class Criteria {
 

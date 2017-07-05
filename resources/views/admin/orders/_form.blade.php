@@ -12,7 +12,7 @@
     
     <div class="form-group">
      {!! Form::label('Address','Endereço',['class'=>'col-md-2']) !!}
-     {!! Form::text('address',null,['class'=>'form-control']) !!}      
+     {!! Form::text('client[address]',null,['class'=>'form-control']) !!}      
     </div>
 
     <div class="form-group">

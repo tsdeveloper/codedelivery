@@ -1,13 +1,13 @@
 <?php
 
-namespace BrindaBrasil\Http\Controllers;
-use BrindaBrasil\config\App;
-use BrindaBrasil\Repositories\ProductRepository;
-use BrindaBrasil\Repositories\CategoryRepository;
+namespace CodeDelivery\Http\Controllers;
+use CodeDelivery\config\App;
+use CodeDelivery\Repositories\ProductRepository;
+use CodeDelivery\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
-use BrindaBrasil\Http\Requests;
-use BrindaBrasil\Http\Controllers\Controller;
-use BrindaBrasil\Http\Requests\AdminProductRequest;
+use CodeDelivery\Http\Requests;
+use CodeDelivery\Http\Controllers\Controller;
+use CodeDelivery\Http\Requests\AdminProductRequest;
 class ProductsController extends Controller
 {
     //

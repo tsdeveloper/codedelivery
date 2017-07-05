@@ -1,6 +1,6 @@
 <?php
 
-namespace BrindaBrasil\Jobs;
+namespace CodeDelivery\Jobs;
 
 use Illuminate\Bus\Queueable;
 

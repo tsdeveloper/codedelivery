@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use BrindaBrasil\Models\Category;
-use BrindaBrasil\Models\Product;
+use CodeDelivery\Models\Category;
+use CodeDelivery\Models\Product;
 
 class CategoryTableSeeder extends Seeder
 {

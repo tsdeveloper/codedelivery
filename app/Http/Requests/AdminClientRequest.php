@@ -1,11 +1,11 @@
 <?php
 
-namespace BrindaBrasil\Http\Requests;
+namespace CodeDelivery\Http\Requests;
 
-use BrindaBrasil\Http\Requests\Request;
+use CodeDelivery\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
-use BrindaBrasil\Models\Client;
-use BrindaBrasil\Models\User;
+use CodeDelivery\Models\Client;
+use CodeDelivery\Models\User;
 
 class AdminClientRequest extends Request
 {
@@ -16,7 +16,8 @@ class AdminClientRequest extends Request
      */
     public function authorize()
     {
-         return Auth::check();
+        //  return Auth::check();
+         return true;
 
         //  $id = $this->get('id');
         //  echo 'ID: '.$id;

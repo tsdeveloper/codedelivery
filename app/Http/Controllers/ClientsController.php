@@ -1,24 +1,24 @@
 <?php
 
-namespace BrindaBrasil\Http\Controllers;
-use BrindaBrasil\config\App;
-use BrindaBrasil\Repositories\ClientRepository;
-use BrindaBrasil\Repositories\UserRepository;
+namespace CodeDelivery\Http\Controllers;
+use CodeDelivery\config\App;
+use CodeDelivery\Repositories\ClientRepository;
+use CodeDelivery\Services\ClientService;
 use Illuminate\Http\Request;
-use BrindaBrasil\Http\Requests;
-use BrindaBrasil\Http\Controllers\Controller;
-use BrindaBrasil\Http\Requests\AdminClientRequest;
+use CodeDelivery\Http\Requests;
+use CodeDelivery\Http\Controllers\Controller;
+use CodeDelivery\Http\Requests\AdminClientRequest;
 class ClientsController extends Controller
 {
     //
     private $_clientRepository;
     private $_categoryRepository;
-    private $_userRepository;
+    private $_clientService;
 
-    public function __construct(ClientRepository $ClientRepository, UserRepository $userRepository) {
-        $this->_clientRepository=$ClientRepository;
-        $this->_userRepository=$userRepository;
-
+    public function __construct(ClientRepository $clientRepository,ClientService $clientService) {
+        $this->_clientRepository=$clientRepository;
+        $this->_clientService = $clientService;
+        
         
     }
     public function Index() {
@@ -31,8 +31,7 @@ class ClientsController extends Controller
 
       $user = "Visitante";
       $clients = $this->_clientRepository->paginate(5);
-        // echo var_dump($categories);
-            // exit;
+      dd($clients);
       return view('admin.clients.index', compact('clients', 'user'));
 
     }
@@ -46,17 +45,14 @@ class ClientsController extends Controller
 
 
         $data = $request->all();
-        $this->_clientRepository->create($data);
+        $this->_clientService->store($data);
         return redirect()->route('admin.clients.index');
        }
 
        public function edit($id){        
-               $client = $this->_clientRepository->find($id);
-              // dd($client->user->name); 
-              // exit;
-            $users = $this->_userRepository->lists();
-         
-             return view('admin.clients.edit', compact('client', 'users'));      
+               $client = $this->_clientRepository->find($id);              
+                    
+             return view('admin.clients.edit', compact('client'));      
         }
 
          public function update(AdminClientRequest $request,$id){       
@@ -65,7 +61,9 @@ class ClientsController extends Controller
         //       echo 'ID: '.$id;
         //  exit ;
             $data = $request->all();
-            $this->_clientRepository->update($data,$id);
+            // dd($data,$id); 
+            //   exit;
+            $this->_clientService->update($data,$id);
               return redirect()->route('admin.clients.index');
         }
 

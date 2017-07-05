@@ -1,6 +1,6 @@
 <?php
 
-namespace BrindaBrasil\Models;
+namespace CodeDelivery\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
@@ -22,6 +22,13 @@ class User extends Model implements AuthenticatableContract,
 public function  client() {
     return $this->hasOne(Client::class);
 }
+
+public function roles()
+    {
+        return $this->belongsToMany(Role::class,'user_roles','user_id','role_id');
+    }
+
+
     /**
      * The database table used by the model.
      *

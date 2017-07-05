@@ -1,8 +1,8 @@
 <?php
 
-namespace BrindaBrasil\Http\Requests;
+namespace CodeDelivery\Http\Requests;
 
-use BrindaBrasil\Http\Requests\Request;
+use CodeDelivery\Http\Requests\Request;
 
 class AdminCategoryRequest extends Request
 {
@@ -13,7 +13,8 @@ class AdminCategoryRequest extends Request
      */
     public function authorize()
     {
-        return true;
+          return true;
+
     }
 
     /**

@@ -143,11 +143,11 @@ return [
         /*
          * Application Service Providers...
          */
-        BrindaBrasil\Providers\AppServiceProvider::class,
-        BrindaBrasil\Providers\AuthServiceProvider::class,
-        BrindaBrasil\Providers\EventServiceProvider::class,
-        BrindaBrasil\Providers\RouteServiceProvider::class,
-        BrindaBrasil\Providers\RepositoryServiceProvider::class,
+        CodeDelivery\Providers\AppServiceProvider::class,
+        CodeDelivery\Providers\AuthServiceProvider::class,
+        CodeDelivery\Providers\EventServiceProvider::class,
+        CodeDelivery\Providers\RouteServiceProvider::class,
+        CodeDelivery\Providers\RepositoryServiceProvider::class,
       
 
     ],

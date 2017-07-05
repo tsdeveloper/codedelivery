@@ -1,17 +1,17 @@
 <?php
 
-namespace BrindaBrasil\Repositories;
+namespace CodeDelivery\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use BrindaBrasil\Repositories\CategoryRepository;
+use CodeDelivery\Repositories\CategoryRepository;
 
 use Illuminate\Database\Eloquent\Model;
-use BrindaBrasil\Validators\CategoryValidator;
-use \BrindaBrasil\Models\Category;
+use CodeDelivery\Validators\CategoryValidator;
+use \CodeDelivery\Models\Category;
 /**
  * Class CategoryRepositoryEloquent
- * @package namespace BrindaBrasil\Repositories;
+ * @package namespace CodeDelivery\Repositories;
  */
 class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepository
 {

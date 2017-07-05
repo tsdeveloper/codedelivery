@@ -1,16 +1,16 @@
 <?php
 
-namespace BrindaBrasil\Repositories;
+namespace CodeDelivery\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use BrindaBrasil\Repositories\ProductRepository;
-use BrindaBrasil\Models\Product;
-use BrindaBrasil\Validators\ProductValidator;
+use CodeDelivery\Repositories\ProductRepository;
+use CodeDelivery\Models\Product;
+use CodeDelivery\Validators\ProductValidator;
 
 /**
  * Class ProductRepositoryEloquent
- * @package namespace BrindaBrasil\Repositories;
+ * @package namespace CodeDelivery\Repositories;
  */
 class ProductRepositoryEloquent extends BaseRepository implements ProductRepository
 {

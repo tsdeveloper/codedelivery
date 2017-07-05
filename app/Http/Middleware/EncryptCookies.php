@@ -1,6 +1,6 @@
 <?php
 
-namespace BrindaBrasil\Http\Middleware;
+namespace CodeDelivery\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 

@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => BrindaBrasil\Models\User::class,
+    'model' => CodeDelivery\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------

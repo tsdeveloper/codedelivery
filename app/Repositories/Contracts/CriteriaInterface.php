@@ -1,4 +1,4 @@
-<?php namespace BrindaBrasil\Repositories\Contracts;
+<?php namespace CodeDelivery\Repositories\Contracts;
 
 interface CriteriaInterface {
 

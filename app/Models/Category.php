@@ -1,6 +1,6 @@
 <?php
 
-namespace BrindaBrasil\Models;
+namespace CodeDelivery\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
