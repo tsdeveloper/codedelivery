@@ -62,5 +62,11 @@ class RepositoryServiceProvider extends ServiceProvider
             'CodeDelivery\Repositories\OrderItemRepository',
             'CodeDelivery\Repositories\OrderItemRepositoryEloquent'
         );
+
+         //### ORDER  ITEM ###
+        $this->app->bind(
+            'CodeDelivery\Repositories\RoleRepository',
+            'CodeDelivery\Repositories\RoleRepositoryEloquent'
+        );
     }
 }

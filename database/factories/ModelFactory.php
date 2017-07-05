@@ -71,7 +71,8 @@ $factory->define(CodeDelivery\Models\Order::class, function (Faker\Generator $fa
     return [
        'client_id'  => rand(1,10),
         'total'  => rand(50,120),
-        'status' => 0
+        'status' => rand(0,1),
+        'user_deliveryman_id' => rand(12,13)
 
     ];
 });

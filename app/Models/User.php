@@ -23,6 +23,11 @@ public function  client() {
     return $this->hasOne(Client::class);
 }
 
+public function orders() {
+        return $this->hasMany(Order::class);
+    }
+
+
 public function roles()
     {
         return $this->belongsToMany(Role::class,'user_roles','user_id','role_id');

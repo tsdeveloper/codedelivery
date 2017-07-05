@@ -45,6 +45,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth.check
     Route::get('orders', ['as' => 'orders.index', 'uses' => 'OrdersController@index']);
     Route::get('orders/edit/{id}', ['as' => 'orders.edit', 'uses' => 'OrdersController@edit']);
     Route::post('orders/update/{id}', ['as' => 'orders.update', 'uses' => 'OrdersController@update']);
+    Route::post('orders/delete/{id}', ['as' => 'orders.delete', 'uses' => 'OrdersController@delete']);
 
 
 });

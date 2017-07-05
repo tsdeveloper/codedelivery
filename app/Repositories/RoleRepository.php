@@ -8,7 +8,7 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  * Interface RolesRepository
  * @package namespace CodeDelivery\Repositories;
  */
-interface RolesRepository extends RepositoryInterface
+interface RoleRepository extends RepositoryInterface
 {
     //
 }

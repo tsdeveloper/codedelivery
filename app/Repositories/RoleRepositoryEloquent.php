@@ -4,14 +4,14 @@ namespace CodeDelivery\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use CodeDelivery\Repositories\RolesRepository;
-use CodeDelivery\Models\Roles;
+use CodeDelivery\Repositories\RoleRepository;
+use CodeDelivery\Models\Role;
 
 /**
  * Class RolesRepositoryEloquent
  * @package namespace CodeDelivery\Repositories;
  */
-class RolesRepositoryEloquent extends BaseRepository implements RolesRepository
+class RoleRepositoryEloquent extends BaseRepository implements RoleRepository
 {
     /**
      * Specify Model class name
@@ -20,7 +20,7 @@ class RolesRepositoryEloquent extends BaseRepository implements RolesRepository
      */
     public function model()
     {
-        return Roles::class;
+        return Role::class;
     }
 
     /**

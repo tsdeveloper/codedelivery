@@ -15,6 +15,8 @@
                         <th>Total</th>
                         <th>Data</th>
                         <th>Items</th>
+                        <th>Cliente</th>
+                        <th>Acão</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,6 +33,10 @@
                             </ul>
 
                         </td>
+                        <td>{{ $order->client->user->name}}</td>
+                        <td>
+                         <a href="{{ route('admin.orders.edit',['id'=>$order->id]) }}" class="btn btn-info">Editar</a>
+                        <a href="{{ route('admin.orders.delete',['id'=>$order->id]) }}" class="btn btn-danger">Remover</a></td>
                     </tr>
                     @endforeach
                 </tbody>
