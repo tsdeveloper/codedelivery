@@ -2,6 +2,7 @@
 use Illuminate\Database\Seeder;
 use CodeDelivery\Models\Client;
 use CodeDelivery\Models\User;
+use CodeDelivery\Models\Role;
 use Faker\Factory;
 
 class UserTableSeeder extends Seeder
