@@ -92,10 +92,10 @@ $factory->define(CodeDelivery\Models\Cupom::class, function (Faker\Generator $fa
     $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
     return [
 	'description' => $faker->catchPhrase ,
-		'validate'=> $faker->date($format = 'd-m-Y', $max = 'now'),
+		'validate'=> $faker->dateTimeInInterval($startDate = date_default_timezone_get(), $interval = '+ 5 days', $timezone = date_default_timezone_get()),//$faker->date($format = 'd-m-Y', $max = 'now'),
 		'code' => substr($faker->md5,0,6),
 		'price' => $faker->numberBetween($min=5,$max=90),
-		'used' =>range(0,1),
+		'used' =>rand(0,1)
 
     ];
 });
