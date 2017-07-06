@@ -49,6 +49,7 @@
 							<li><a href="{{ route('admin.clients.index') }}">Clientes</a></li>
 							<li><a href="{{ route('admin.products.index') }}">Produtos</a></li>
 							<li><a href="{{ route('admin.orders.index') }}">Pedidos</a></li>
+							<li><a href="{{ route('admin.cupoms.index') }}">Cupoms</a></li>
 							<li><a href="#">Usuários</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-center welcome-msg hidden-xs hidden-sm">
