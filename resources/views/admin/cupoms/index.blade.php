@@ -17,7 +17,9 @@
         <tr>
             <th>ID</th>
             <th>Descrição</th>
-            <th>E-mail</th>
+            <th>Cupom</th>
+            <th>Validade</th>
+            <th>Valor</th>
             <th>Status</th>
             <th>Ação</th>
         </tr>
@@ -26,9 +28,11 @@
      @foreach($cupoms as $cupom)
         <tr>
             <td>{{$cupom->id}}</td>
-            <td>{{$cupom->user->name}}</td>
-            <td>{{$cupom->user->email}}</td>
-            <td>{{ $cupom->active=== 1 ? 'Ativo' : 'Inativo' }}</td>
+            <td>{{$cupom->description}}</td>
+            <td>{{$cupom->code}}</td>
+            <td>{{$cupom->validade}}</td>
+            <td>{{$cupom->value}}</td>
+            <td>{{ $cupom->use=== 1 ? 'Sim' : 'Não' }}</td>
             <td>
             <a href="{{ route('admin.cupoms.edit',['id'=>$cupom->id]) }}" class="btn btn-info">Editar</a>
             <a href="#" class="btn btn-danger">Excluir</a>
