@@ -18,4 +18,8 @@ class Cupom extends Model implements Transformable
 		'used',
 	];
 
+	  public function orders() {
+        return $this->hasMany(Order::class);
+    }
+
 }
