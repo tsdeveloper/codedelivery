@@ -3,8 +3,12 @@
 <div class="container">
             <div class="content"> 
 
-<div class="title "><h3>Editando o Pedido <strong><span class="text-success">{{$order->id}} - </strong></span><strong><span class="text-success">[{{$order->client->user->name}}]</span></strong></h3></div></div><br /> 
-    {!! Form::model($order,['route'=>['admin.orders.update',$order->client->user->id]]) !!}
+<div class="title "><h3>Editando o Pedido <strong><span class="text-success">{{$order->id}} - </span></strong><strong><span class="text-success">[{{$order->client->user->name}}]</span></strong></h3></div></div><br />
+    {!! Form::model($order,['route'=>['admin.orders.update',$order->id]]) !!}
+    <div class="title alert alert-warning">
+       {!! Form::label('Status', 'Status', ['class'=>'col-md-2']) !!}
+                    {!! Form::select('status', $statusOrder, null, ['class'=>'form-control']) !!}
+                   </div></div><br />
 
     @if (count($errors) > 0)
     <div class="alert alert-danger">
