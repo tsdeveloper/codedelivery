@@ -1,5 +1,6 @@
 <?php
 namespace CodeDelivery\Http\Controllers;
+use CodeDelivery\Models\Order;
 use CodeDelivery\Repositories\Criteria\MyCriteria;
 use CodeDelivery\Repositories\OrderRepository;
 use Illuminate\Http\Request;
@@ -9,12 +10,12 @@ use CodeDelivery\Models\User;
 class OrdersController extends Controller
 {
     private $repository;
-    private $user;
+    // private $user;
 
-    public function __construct(OrderRepository $orderRepository,UserRepository $userRepository)
+    public function __construct(OrderRepository $orderRepository)
     {
         $this->repository = $orderRepository;
-        $this->user = $userRepository;
+        // $this->user = $userRepository;
     }
 
     public function index()
@@ -26,19 +27,25 @@ class OrdersController extends Controller
 
     }
 
-    public function edit($id)
+    public function edit($id,UserRepository $userRepository)
     {
-        $this->user->pushCriteria(new MyCriteria());
+//        $userRepository->pushCriteria(new MyCriteria());
         $order = $this->repository->find($id);
-        // $user_model = new User();
-       $deliverymans =  $this->user->lists(); // ??? }])->paginate();
-        // dd($deliverymans);
-        return view('admin.orders.edit', compact('order','deliverymans'));
+        $deliverymans = User::with(['roles' => function($q){
+            $q->where('role_id', 2);
+        }])->whereHas('roles', function($query) {
+            $query->where('role_id', 2);
+        })->lists('name','id');
+//       $deliverymans =  $userRepository->with(['roles'])->lists(); // ??? }])->paginate();
+        $statusOrder = Order::getEnumValues('Orders','status');
+//        dd($statusOrder);
+        return view('   admin.orders.edit', compact('order','deliverymans','statusOrder'));
     }
-    public function updated(Request $request, $id)
+    public function update(Request $request, $id)
     {
 
         $data = $request->all();
+//        dd($data,$id);
         $this->repository->update($data, $id);
         return redirect()->route('admin.orders.index');
     }
