@@ -16,6 +16,8 @@
                         <th>Data</th>
                         <th>Items</th>
                         <th>Cliente</th>
+                        <th>Entregador</th>
+                        <th>Status</th>
                         <th>Acão</th>
                     </tr>
                 </thead>
@@ -34,6 +36,8 @@
 
                         </td>
                         <td>{{ $order->client->user->name}}</td>
+                        <td>{{ !empty($order->deliveryman) ? $order->deliveryman->name : '-' }}</td>
+                        <td>{{ !empty($order->status) ? $order->status : '-' }}</td>
                         <td>
                          <a href="{{ route('admin.orders.edit',['id'=>$order->id]) }}" class="btn btn-info">Editar</a>
                         <a href="{{ route('admin.orders.delete',['id'=>$order->id]) }}" class="btn btn-danger">Remover</a></td>
