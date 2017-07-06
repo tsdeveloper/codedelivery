@@ -68,5 +68,11 @@ class RepositoryServiceProvider extends ServiceProvider
             'CodeDelivery\Repositories\RoleRepository',
             'CodeDelivery\Repositories\RoleRepositoryEloquent'
         );
+
+        //### CUPOM ###
+        $this->app->bind(
+            'CodeDelivery\Repositories\CupomRepository',
+            'CodeDelivery\Repositories\CupomRepositoryEloquent'
+        );
     }
 }
