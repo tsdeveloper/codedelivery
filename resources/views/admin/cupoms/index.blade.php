@@ -20,7 +20,7 @@
             <th>Cupom</th>
             <th>Validade</th>
             <th>Valor</th>
-            <th>Status</th>
+            <th>Usado?</th>
             <th>Ação</th>
         </tr>
     </thead>
