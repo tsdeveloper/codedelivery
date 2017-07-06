@@ -14,12 +14,17 @@ class CreateCupomsTable extends Migration
     {
         Schema::create('cupoms', function (Blueprint $table) {
             $table->increments('id');
+            	 $table->string('description');
+		 $table->date('validate');
+		 $table->string('code');
+		 $table->decimal('price', 5, 2);
+		 $table->boolean('used');
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the <migrations class=""></migrations>
      *
      * @return void
      */

@@ -87,3 +87,15 @@ $factory->define(CodeDelivery\Models\OrderItem::class, function (Faker\Generator
 
     ];
 });
+
+$factory->define(CodeDelivery\Models\Cupom::class, function (Faker\Generator $faker) {
+    $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
+    return [
+	'description' => $faker->catchPhrase ,
+		'validate'=> $faker->date($format = 'd-m-Y', $max = 'now'),
+		'code' => substr($faker->md5,0,6),
+		'price' => $faker->numberBetween($min=5,$max=90),
+		'used' =>range(0,1),
+
+    ];
+});
