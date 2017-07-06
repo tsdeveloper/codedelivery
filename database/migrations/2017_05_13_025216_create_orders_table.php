@@ -19,7 +19,8 @@ class CreateOrdersTable extends Migration
                $table->integer('user_deliveryman_id')->unsigned()->nullable();
                $table->foreign('user_deliveryman_id')->references('id')->on('users');
             $table->decimal('total');
-            $table->smallInteger('status')->default(0);
+//            $table->smallInteger('status')->default(0);
+            $table->enum('status',array('pendente','à caminho','em trânsito','processado','cancelado','aprovado','gerando NFe','pagamento não aprovado'))->default('pendente');
             $table->timestamps();
         });
     }
