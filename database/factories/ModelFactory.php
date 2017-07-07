@@ -93,7 +93,7 @@ $factory->define(CodeDelivery\Models\Cupom::class, function (Faker\Generator $fa
     return [
 	'description' => $faker->catchPhrase ,
 		'validate'=> $faker->dateTimeInInterval($startDate = date_default_timezone_get(), $interval = '+ 5 days', $timezone = date_default_timezone_get()),//$faker->date($format = 'd-m-Y', $max = 'now'),
-		'code' => substr($faker->md5,0,6),
+		'code' => strtoupper(substr($faker->md5,0,6)),
 		'value' => $faker->numberBetween($min=5,$max=90),
 		'used' =>rand(0,1)
 
