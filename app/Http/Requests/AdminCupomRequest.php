@@ -43,7 +43,7 @@ class AdminCupomRequest extends Request
         return [
             'description'=>'required|min:3',
             'code'=>'required|min:6',     
-            'price'=>'required'    
+            'value'=>'required'    
            
         ];
     }
