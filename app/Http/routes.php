@@ -50,7 +50,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth.check
     Route::get('cupoms', ['as' => 'cupoms.index', 'uses' => 'CupomsController@index']);
     Route::get('cupoms/create', ['as' => 'cupoms.create', 'uses' => 'CupomsController@create']);
     Route::post('cupoms/store', ['as' => 'cupoms.store', 'uses' => 'CupomsController@store']);
-    Route::get('cupoms/edit/{id}', ['as' => 'cupoms.edit', 'uses' => 'CupomsController@edit']);
+        Route::get('cupoms/edit/{id}', ['as' => 'cupoms.edit', 'uses' => 'CupomsController@edit']);
     Route::post('cupoms/update/{id}', ['as' => 'cupoms.update', 'uses' => 'CupomsController@update']);
     Route::post('cupoms/delete/{id}', ['as' => 'cupoms.delete', 'uses' => 'CupomsController@delete']);
 

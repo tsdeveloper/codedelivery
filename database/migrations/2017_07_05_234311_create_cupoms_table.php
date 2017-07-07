@@ -17,7 +17,7 @@ class CreateCupomsTable extends Migration
             	 $table->string('description');
 		 $table->date('validate');
 		 $table->string('code');
-		 $table->decimal('price', 5, 2);
+		 $table->decimal('value', 5, 2);
 		 $table->boolean('used');
             $table->timestamps();
         });

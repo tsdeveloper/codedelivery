@@ -3,7 +3,7 @@
 <div class="container">
             <div class="content"> 
 
-<div class="title"><h3>Área Administrativa de Clientes</h3></div>
+<div class="title"><h3>Área Administrativa de Cupoms</h3></div>
 
 <br /> 
 <a href=" {{ route('admin.cupoms.create') }} " class="btn btn-default">Novo Cupom</a>
