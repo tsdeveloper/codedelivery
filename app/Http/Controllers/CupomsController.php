@@ -22,7 +22,7 @@ class CupomsController extends Controller
 
     public function index()
     {
-        $cupoms = $this->repository->paginate();
+        $cupoms = $this->repository->paginate(5);
 
 
         return view('admin.cupoms.index', compact('cupoms'));
@@ -48,6 +48,7 @@ class CupomsController extends Controller
 
 
         $data = $request->all();
+        // dd($data);
         $this->repository->create($data);
         return redirect()->route('admin.cupoms.index');
     }
