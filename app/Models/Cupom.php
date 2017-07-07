@@ -14,7 +14,7 @@ class Cupom extends Model implements Transformable
 		'description',
 		'validate',
 		'code',
-		'price',
+		'value',
 		'used',
 	];
 
