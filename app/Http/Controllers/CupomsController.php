@@ -1,9 +1,13 @@
 <?php
 namespace CodeDelivery\Http\Controllers;
+
 use CodeDelivery\Repositories\Criteria\MyCriteria;
 use CodeDelivery\Repositories\CupomRepository;
 use Illuminate\Http\Request;
 use CodeDelivery\Models\User;
+use CodeDelivery\Http\Requests\AdminCupomRequest;
+use Faker\Factory;
+
 class CupomsController extends Controller
 {
     private $repository;
@@ -13,6 +17,7 @@ class CupomsController extends Controller
     {
         $this->repository = $cupomRepository;
         // $this->user = $userRepository;
+
     }
 
     public function index()
@@ -24,32 +29,42 @@ class CupomsController extends Controller
 
     }
 
-    public function create() {            
-         
-        return view('admin.cupoms.create');      
+    public function create(Request $request)
+    {
+          $data = $request->all();
+        if ($request->ajax()) {
+        $faker = Factory::create();
+            $result =[
+                'code'=> strtoupper(substr($faker->md5,0,6))
+            ];
+           
+            return response()->json(compact('result'));
+        }
+        return view('admin.cupoms.create');
     }
 
-      public function store(AdminCupomRequest $request) {
+    public function store(AdminCupomRequest $request)
+    {
 
 
         $data = $request->all();
-        $this->_clientService->store($data);
+        $this->repository->create($data);
         return redirect()->route('admin.cupoms.index');
-       }
+    }
 
-    public function edit($id,UserRepository $userRepository)
+    public function edit($id, UserRepository $userRepository)
     {
 //        $userRepository->pushCriteria(new MyCriteria());
         $cupom = $this->repository->find($id);
-        $deliverymans = User::with(['roles' => function($q){
+        $deliverymans = User::with(['roles' => function ($q) {
             $q->where('role_id', 2);
-        }])->whereHas('roles', function($query) {
+        }])->whereHas('roles', function ($query) {
             $query->where('role_id', 2);
-        })->lists('name','id');
+        })->lists('name', 'id');
 //       $deliverymans =  $userRepository->with(['roles'])->lists(); // ??? }])->paginate();
-        $statusOrder = Order::getEnumValues('Orders','status');
+        $statusOrder = Order::getEnumValues('Orders', 'status');
 //        dd($statusOrder);
-        return view('   admin.cupoms.edit', compact('cupom','deliverymans','statusOrder'));
+        return view('   admin.cupoms.edit', compact('cupom', 'deliverymans', 'statusOrder'));
     }
     public function update(Request $request, $id)
     {
