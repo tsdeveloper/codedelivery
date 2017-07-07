@@ -9,13 +9,11 @@
     
     <section id="content-menu">
      <div style="position:absolute; top:60px; left:10px; width:500px; height:500px;">
-    <canvas id="myChart" width="200" height="200"></canvas>
+    {{-- <canvas id="myChart" width="200" height="200"></canvas> --}}
     </div>
       </section>
 
-    <section id="content-chart2">
-    
-    </section>
+  
  
     {{-- <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
