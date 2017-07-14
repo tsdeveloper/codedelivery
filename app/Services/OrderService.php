@@ -2,10 +2,15 @@
 
 namespace CodeDelivery\Services;
 
-use CodeDelivery\Repositories\UserRepository;
-use CodeDelivery\Repositories\ClientRepository;
 
-class ClientService
+
+use CodeDelivery\Repositories\ClientRepository;
+use CodeDelivery\Repositories\CupomRepository;
+use CodeDelivery\Repositories\OrderRepository;
+use CodeDelivery\Repositories\ProductRepository;
+use CodeDelivery\Repositories\UserRepository;
+
+class OrderService
 {
 
       /**
@@ -16,12 +21,28 @@ class ClientService
      * @var UserRepository
      */
     private $userRepository;
+    /**
+     * @var OrderRepository
+     */
+    private $orderRepository;
+    /**
+     * @var CupomRepository
+     */
+    private $cupomRepository;
+    /**
+     * @var ProductRepository
+     */
+    private $productRepository;
 
-    public function __construct(ClientRepository $clientRespository, UserRepository $userRepository)
+    public function __construct(OrderRepository $orderRepository,
+                                CupomRepository $cupomRepository,
+                                ProductRepository $productRepository )
     {
 
-        $this->clientRespository = $clientRespository;
-        $this->userRepository = $userRepository;
+
+        $this->orderRepository = $orderRepository;
+        $this->cupomRepository = $cupomRepository;
+        $this->productRepository = $productRepository;
     }
     public function update(array $data, $id)
     {
@@ -34,7 +55,7 @@ class ClientService
 
     public function store(array $data)
     {
-        $data['user']['password'] =bcrypt(123456);        
+        $data['status'] = 0;
         $user = $this->userRepository->create($data['user']);
         // dd($userId);
         // exit;        

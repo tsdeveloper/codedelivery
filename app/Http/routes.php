@@ -60,6 +60,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth.check
 Route::group(['prefix'=>'customer','as'=>'customer.'], function () {
 
     Route::get('order/create', ['as' => 'order.create', 'uses' => 'CheckoutController@create']);
+    Route::get('order/store', ['as' => 'order.store', 'uses' => 'CheckoutController@store']);
 
 });
 //Router Client

@@ -8,7 +8,7 @@
     <h2 >Total: <small id="total"></small></h2>
 </div>
 <br /> 
-<a href="#" id="btnNewItem" class="btn btn-default">Novo Pedido</a>
+<a href="{!! route('customer.order.store') !!}" id="btnNewItem" class="btn btn-default">Novo Pedido</a>
 <br /> 
 <div class="table-responsive">
 
