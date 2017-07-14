@@ -11,7 +11,7 @@
         "bestmomo/scafold": "dev-master",
         "laravelcollective/html": "5.1.*",
         "moneyphp/money": "^3.0@dev",
-        "nesbot/carbon": "^1.23@dev",
+        "nesbot/carbon": "^1.22",
         "prettus/l5-repository": "2.1.5",
         "prettus/laravel-validation": "^1.1"
 
