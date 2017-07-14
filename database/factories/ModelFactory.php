@@ -37,7 +37,7 @@ $factory->define(CodeDelivery\Models\Product::class, function (Faker\Generator $
     return [
         'name' => $faker->jobTitle,
         'description' => $faker->text,
-        'price' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = NULL),
+        'price' => rand(10,100),
         'barcode' => $faker->isbn13,
         'qtd' => $faker->randomNumber,
         'img_src' =>  $faker->imageUrl($width = 800, $height = 600, 'nightlife', true, 'Faker', true)
