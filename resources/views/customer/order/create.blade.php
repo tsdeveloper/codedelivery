@@ -3,10 +3,13 @@
 <div class="container">
   {!! Form::open(['class'=>'form']) !!}
 <div class="title"><h3>Área Administrativa de Listagem de produtos</h3></div>
-
+<br /> 
+<div class="alert alert-success">
+    <h2 >Total: <small id="total"></small></h2>
+</div>
 <br /> 
 <a href="#" id="btnNewItem" class="btn btn-default">Novo Pedido</a>
-
+<br /> 
 <div class="table-responsive">
 
 <table class="table table-striped table-hover">
@@ -70,10 +73,11 @@
 
     $(document.body).on('click','select', function(){
 calculateTotal();
+
     });
 
-    $('input[name*=qtd]').blur(function(){
-        calculateTotal();
+     $(document.body).on('blur','input',function(){
+       calculateTotal();
     })
 
 
