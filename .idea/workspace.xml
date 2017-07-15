@@ -473,7 +473,7 @@
       <workItem from="1499294048695" duration="11545000" />
       <workItem from="1499993702126" duration="1556000" />
       <workItem from="1500081523927" duration="1535000" />
-      <workItem from="1500083075102" duration="4043000" />
+      <workItem from="1500083075102" duration="4067000" />
     </task>
     <task id="LOCAL-00001" summary="Add Filter Status Order">
       <created>1499305117930</created>
@@ -545,11 +545,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500087682329</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add new file bug Laragon">
+      <created>1500087720074</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1500087720074</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33359000" />
+    <option name="totallyTimeSpent" value="33383000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
