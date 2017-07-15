@@ -15,8 +15,17 @@ class UserTableSeeder extends Seeder
     public function run()
     {
 
+        $user_user = Role::where('name', 'User')->first();
+//        $user_delivery = Role::where('name', 'Delivery')->first();
         $user_admin = Role::where('name', 'Admin')->first();
         $user_delivery = Role::where('name', 'Delivery')->first();
+
+        factory(User::class)->create([
+            'name' => 'User',
+            'email' => 'user@codedelivery.com',
+            'password' => bcrypt('user@123')
+        ])->client()->save(factory(Client::class)->make());
+
         //
         factory(User::class, 10)->create()->each(function ($u) {
             $u->client()->save(factory(Client::class)->make());
@@ -24,12 +33,17 @@ class UserTableSeeder extends Seeder
 
         $fake = new Factory();
 
+
+
         $user = new User();
         $user->name = 'Admin';
         $user->email = 'admin@codedelivery.com';
         $user->password = bcrypt('admin@123');
         $user->save();
         $user->roles()->attach($user_admin);
+
+
+
 
         $user = new User();
         $user->name = 'Delivery1';

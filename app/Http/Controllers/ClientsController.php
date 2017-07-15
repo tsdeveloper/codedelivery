@@ -31,7 +31,7 @@ class ClientsController extends Controller
 
       $user = "Visitante";
       $clients = $this->_clientRepository->paginate(5);
-      dd($clients);
+
       return view('admin.clients.index', compact('clients', 'user'));
 
     }

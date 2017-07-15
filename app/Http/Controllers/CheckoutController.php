@@ -2,25 +2,27 @@
 
 namespace CodeDelivery\Http\Controllers;
 
-
-use CodeDelivery\Services\OrderService;
-use Illuminate\Http\Request;
-use CodeDelivery\Http\Requests;
-use CodeDelivery\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Prettus\Validator\Exceptions\ValidatorException;
-use Prettus\Validator\Contracts\ValidatorInterface;
-use CodeDelivery\Repositories\UserRepository;
 use CodeDelivery\Repositories\OrderRepository;
 use CodeDelivery\Repositories\ProductRepository;
-use function redirect;
+use CodeDelivery\Repositories\UserRepository;
+use CodeDelivery\Services\OrderService;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
-    //
-    private $_userRepository;
-    private $_orderRepository;
-    private $_productRepository;
+
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
+    /**
+     * @var OrderRepository
+     */
+    private $orderRepository;
+    /**
+     * @var ProductRepository
+     */
+    private $productRepository;
     /**
      * @var OrderService
      */
@@ -31,27 +33,30 @@ class CheckoutController extends Controller
         OrderRepository $orderRepository,
         ProductRepository $productRepository,
         OrderService $service) {
-        $this->_userRepository=$userRepository;
-        $this->_orderRepository=$orderRepository;
-        $this->_productRepository=$productRepository;
+
+
+        $this->userRepository = $userRepository;
+        $this->orderRepository = $orderRepository;
+        $this->productRepository = $productRepository;
         $this->service = $service;
     }
 
     public function  index(){
-        $clientId = $this->_userRepository->find(Auth::user()->id)->client->id;
-        $orders = $this->_orderRepository->scopeQuery(function ($query) use($clientId){
+        $clientId = $this->userRepository->find(Auth::user()->id)->client->id;
+//        dd($clientId);
+        $orders = $this->orderRepository->scopeQuery(function ($query) use($clientId){
            return $query->where('client_id', '=', $clientId);
         })-paginate(5);
 
-        $price = currency_format(12.00, 'EUR');
-        dd($price);
+//        $price = currency_format(12.00, 'EUR');
+
         return view('customer.order.index',compact( '$orders'));
 
     }
 
     public function create(){
 
-            $products = $this->_productRepository->lists();
+            $products = $this->productRepository->lists();
 
         return view('customer.order.create',compact( 'products'));
     }
@@ -60,7 +65,7 @@ class CheckoutController extends Controller
 
         $data = $request->all();
 
-        $clientId = $this->_userRepository->find(Auth::user()->id)->client->id;
+        $clientId = $this->userRepository->find(Auth::user()->id)->client->id;
         $data['client_id'] = $clientId;
         $this->service->create($data);
 
