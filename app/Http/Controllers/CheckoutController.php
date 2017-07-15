@@ -43,6 +43,8 @@ class CheckoutController extends Controller
            return $query->where('client_id', '=', $clientId);
         })-paginate(5);
 
+        $price = currency_format(12.00, 'EUR');
+        dd($price);
         return view('customer.order.index',compact( '$orders'));
 
     }

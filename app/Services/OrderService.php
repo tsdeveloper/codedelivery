@@ -53,16 +53,46 @@ class OrderService
              $this->userRepository->update($data['user'],$userId);
     }
 
-    public function store(array $data)
+    public function create(array $data)
     {
-        $data['status'] = 0;
-        $user = $this->userRepository->create($data['user']);
-        // dd($userId);
-        // exit;        
-        $data['user_id'] = $user->id;
-        // dd($data);
-        $this->clientRespository->create($data);
-                         // dd($userId);
-            
+        \DB::beginTranscation();
+        try{
+
+            $data['status'] = 0;
+
+            if(isset($data['cupom_code'])){
+                $cupom =$this->cupomRepository->findByField('code',$data['cupom_code'])->first();
+                $data['cupom_id'] = $cupom->id;
+                $cupom->used = 1;
+                $cupom->save();
+                unset($data['cupom_code']);
+            }
+
+            $items = $data['items'];
+            unset($data['items']);
+
+            $order = $this->orderRepository->create($data);
+
+            $total = 0;
+
+            foreach ($items as $item){
+                $item['price']  = $this->productRepository->find($item['product_id'])->price;
+                $order->items()->create($item);
+                $total +=$item['price'] * $item['qtd'];
+            }
+
+            $order->total = $total;
+            if(isset($cupom)){
+                $order->total = $total - $cupom->value;
+            }
+            $order->save();
+            \DB::commit();
+
+
+        }catch (\Exception $e){
+            \DB::roolback();
+            throw  $e;
+        }
+
     }
 }

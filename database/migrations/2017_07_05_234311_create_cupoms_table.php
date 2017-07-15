@@ -13,12 +13,13 @@ class CreateCupomsTable extends Migration
     public function up()
     {
         Schema::create('cupoms', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
-            	 $table->string('description');
-		 $table->date('validate');
-		 $table->string('code');
-		 $table->decimal('value', 5, 2);
-		 $table->boolean('used');
+            $table->string('description');
+            $table->date('validate');
+            $table->string('code');
+            $table->decimal('value', 5, 2);
+            $table->boolean('used');
             $table->timestamps();
         });
     }
