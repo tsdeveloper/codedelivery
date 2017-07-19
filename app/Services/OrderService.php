@@ -9,6 +9,7 @@ use CodeDelivery\Repositories\CupomRepository;
 use CodeDelivery\Repositories\OrderRepository;
 use CodeDelivery\Repositories\ProductRepository;
 use CodeDelivery\Repositories\UserRepository;
+use Illuminate\Support\Facades\DB;
 
 class OrderService
 {
@@ -55,7 +56,7 @@ class OrderService
 
     public function create(array $data)
     {
-        \DB::beginTranscation();
+        DB::beginTransaction();
         try{
 
             $data['status'] = 0;
