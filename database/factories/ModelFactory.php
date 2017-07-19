@@ -69,9 +69,9 @@ $factory->define(CodeDelivery\Models\Client::class, function (Faker\Generator $f
 $factory->define(CodeDelivery\Models\Order::class, function (Faker\Generator $faker) {
     $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
     return [
-       'client_id'  => rand(1,10),
+       'client_id'  => $faker->numberBetween($min = 1, $max = 10),
         'total'  => rand(50,120),
-        'status' => rand(0,7),
+        'status' => rand(1,7),
         'user_deliveryman_id' => $faker->randomElement($array = array(null, 12, 13),$count = 1)
 
     ];
