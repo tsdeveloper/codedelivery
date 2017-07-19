@@ -20,9 +20,9 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_deliveryman_id')->references('id')->on('users');
             $table->decimal('total');
 //            $table->smallInteger('status')->default(0);
-            $table->enum('status', array('pendente', 'à caminho',
-                'em trânsito', 'processado', 'cancelado', 'aprovado',
-                'gerando NFe', 'pagamento não aprovado'))->default('pendente');
+            $table->enum('status', array('0'=>'Pendente','1'=>'Pedido efetuado', '2'=>'Pagamento Autorizado',
+                '3'=>'Nota fiscal emitida', '4'=>'Produto entregue à transportadora', '5'=>'Em trânsito', '6'=>'Produto entregue',
+                '7'=>'Cancelado', '8'=>'Pagamento não aprovado'))->default('Pendente');
 
             $table->integer('cupom_id')->unsigned()->nullable();
             $table->foreign('cupom_id')->references('id')->on('cupoms');
