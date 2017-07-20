@@ -53,7 +53,10 @@
 							<li><a href="{{ route('admin.cupoms.index') }}">Cupoms</a></li>
 							<li><a href="#">Usuários</a></li>
 							@endcan
+							@can('permission',\CodeDelivery\Models\User::class)
 							<li><a href="{{ route('customer.order.index') }}">Pedido</a></li>
+							@endcan
+
 						</ul>
 						<ul class="nav navbar-nav navbar-center welcome-msg hidden-xs hidden-sm">
 						

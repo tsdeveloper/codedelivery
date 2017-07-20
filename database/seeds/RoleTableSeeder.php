@@ -25,6 +25,11 @@ class RoleTableSeeder extends Seeder
       $role->name = 'Delivery';
       $role->description = 'Acesso restrito';
       $role->save();
+
+        $role = new Role();
+        $role->name = 'User';
+        $role->description = 'Acesso restrito';
+        $role->save();
       
     }
 }
