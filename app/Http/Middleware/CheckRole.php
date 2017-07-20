@@ -2,8 +2,11 @@
 
 namespace CodeDelivery\Http\Middleware;
 
+use function abort;
 use Closure;
 use \Illuminate\Support\Facades\Auth;
+use function nullOrEmptyString;
+
 class CheckRole
 {
     /**
@@ -18,6 +21,18 @@ class CheckRole
              if (!Auth::check()) {
                 return redirect('auth/login');
             }
-        return $next($request);
+
+            if($request->user() ===null){
+                 abort(401, 'Acesso não Autorizado');
+            }
+
+            $actions = $request->route()->getAction();
+            $roles = isset($actions['permission']) ? $actions['permission'] : null;
+
+            if($request->user()->hasManyRoles($roles) || !$roles){
+                return $next($request);
+            }
+
+        abort(401, 'Acesso não Autorizado');
     }
 }

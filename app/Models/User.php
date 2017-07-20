@@ -3,6 +3,7 @@
 namespace CodeDelivery\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use function is_array;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 use Illuminate\Auth\Authenticatable;
@@ -54,4 +55,27 @@ public function roles()
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function hasManyRoles($roles)
+    {
+        if(is_array($roles)){
+            foreach ($roles  as $role){
+                if($this->hasRole($role))
+                    return true;
+            }
+        }else{
+            if($this->hasRole($roles))
+                return true;
+        }
+        return false;
+    }
+
+    private function hasRole($role)
+    {
+        if($this->roles()->where('name',$role)->first()){
+            return true;
+        }
+
+        return false;
+    }
 }

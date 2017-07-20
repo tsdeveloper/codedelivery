@@ -2,6 +2,8 @@
 
 namespace CodeDelivery\Providers;
 
+use CodeDelivery\Models\User;
+use CodeDelivery\Policies\AdminMenuPolicy;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -13,7 +15,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'CodeDelivery\Model' => 'CodeDelivery\Policies\ModelPolicy',
+//        'CodeDelivery\Model' => 'CodeDelivery\Policies\ModelPolicy',
+            User::class => AdminMenuPolicy::class,
     ];
 
     /**

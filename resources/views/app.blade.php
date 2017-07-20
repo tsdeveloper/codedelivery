@@ -39,19 +39,21 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-						<a class="navbar-brand" href="{{ url('/') }}">Brinda Brasil</a>
+						<a class="navbar-brand" href="{{ url('/') }}">Code Delivery</a>
 					</div>
 
 					<div class="collapse navbar-collapse" id="navbar">
 						<ul class="nav navbar-nav">
 							<li class="hidden-xs"><a href="{{ url('/') }}">Seja Bem Vindo</a></li>
-
+							@can('permission',\CodeDelivery\Models\User::class)
 							<li><a href="{{ route('admin.categories.index') }}">Categorias</a></li>
 							<li><a href="{{ route('admin.clients.index') }}">Clientes</a></li>
 							<li><a href="{{ route('admin.products.index') }}">Produtos</a></li>
 							<li><a href="{{ route('admin.orders.index') }}">Pedidos</a></li>
 							<li><a href="{{ route('admin.cupoms.index') }}">Cupoms</a></li>
 							<li><a href="#">Usuários</a></li>
+							@endcan
+							<li><a href="{{ route('customer.order.index') }}">Pedido</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-center welcome-msg hidden-xs hidden-sm">
 						
@@ -67,9 +69,9 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Meu Profile <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="{{ url('/auth/logout') }}">Sair</a></li>
-									<li><a href="{{ url('/auth/logout') }}">Sair</a></li>
-									<li><a href="{{ url('/auth/logout') }}">Sair</a></li>
+									<li><a href="#">Meus Dados</a></li>
+									<li><a href="#">Meus Pedidos</a></li>
+									<li><a href="#">Configuração</a></li>
 									<li><a href="{{ url('/auth/logout') }}">Sair</a></li>
 								</ul>
 							</li>
