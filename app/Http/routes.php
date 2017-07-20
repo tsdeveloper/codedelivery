@@ -74,3 +74,7 @@ Route::group(['prefix' => 'customer', 'as' => 'customer.', 'permission'=> ['User
 //     $repository = app()->make('CodeDelivery\Repositories\ClientRepository');
 //     return $repository->all();
 // });
+
+Route::post('oauth/access_token', function() {
+    return Response::json(Authorizer::issueAccessToken());
+});
