@@ -12,6 +12,32 @@ class CheckRole
     /**
      * Handle an incoming request.
      *
+     * @param  IlluminateHttpRequest  $request
+     * @param  Closure  $next
+     * @return mixed
+     * Agora é só usarmos ele nas rotas:
+
+    'middleware' => 'auth.checkrole:client'
+    'middleware' => 'auth.checkrole:minha-outra-role'
+    Assim, o middleware se tornou um componente reutilizável com a passagem do parâmetro
+     */
+//    public function handle($request, Closure $next, $role) //aqui adicionamos um parametro para o middleware
+//    {
+//
+//        if(!Auth::check()) {
+//            return redirect('/auth/login');
+//        }
+//
+//        if(Auth::user()->role <> $role) { //se a role do usuário autenticado bate com a $role que passamos
+//            return redirect('/auth/login');
+//        }
+//
+//        return $next($request);
+//    }
+
+    /**
+     * Handle an incoming request.
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed

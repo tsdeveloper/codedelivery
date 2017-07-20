@@ -4,7 +4,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "minimum-stability": "stable",
+    "minimum-stability":"dev",
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
@@ -13,7 +13,8 @@
         "moneyphp/money": "^3.0@dev",
         "nesbot/carbon": "^1.22",
         "prettus/l5-repository": "2.1.5",
-        "prettus/laravel-validation": "^1.1"
+        "prettus/laravel-validation": "^1.1",
+        "lucadegasperi/oauth2-server-laravel": "5.0.*"
 
     },
     "require-dev": {

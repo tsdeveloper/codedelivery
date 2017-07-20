@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('welcome');
+});
+
 //Router Categoria
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth.checkrole','permission'=> 'Admin'], function () {
     Route::get('categories', ['as' => 'categories.index', 'uses' => 'CategoriesController@index']);
