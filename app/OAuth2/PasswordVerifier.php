@@ -1,16 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: developer
- * Date: 19/07/2017
- * Time: 23:31
- */
-
 namespace CodeDelivery\OAuth2;
-
-
 use Illuminate\Support\Facades\Auth;
-
 class PasswordVerifier
 {
     public function verify($username, $password)
@@ -19,11 +9,9 @@ class PasswordVerifier
             'email'    => $username,
             'password' => $password,
         ];
-
         if (Auth::once($credentials)) {
             return Auth::user()->id;
         }
-
         return false;
     }
 }

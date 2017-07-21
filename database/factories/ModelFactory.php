@@ -99,3 +99,10 @@ $factory->define(CodeDelivery\Models\Cupom::class, function (Faker\Generator $fa
 
     ];
 });
+
+$factory->define(CodeDelivery\Models\OAuthClient::class, function (Faker\Generator $faker) {
+    $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
+    return [
+
+    ];
+});

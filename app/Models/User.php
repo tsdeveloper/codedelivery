@@ -70,7 +70,7 @@ public function roles()
         return false;
     }
 
-    private function hasRole($role)
+    public function hasRole($role)
     {
         if($this->roles()->where('name',$role)->first()){
             return true;

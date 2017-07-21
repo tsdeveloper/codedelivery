@@ -15,20 +15,24 @@ class UserTableSeeder extends Seeder
     public function run()
     {
 
-        $user_user = Role::where('name', 'User')->first();
-//        $user_delivery = Role::where('name', 'Delivery')->first();
-        $user_admin = Role::where('name', 'Admin')->first();
-        $user_delivery = Role::where('name', 'Delivery')->first();
+        $user_user = Role::where('name', 'user')->first();
+        $user_client = Role::where('name', 'client')->first();
+        $user_admin = Role::where('name', 'admin')->first();
+        $user_delivery = Role::where('name', 'delivery')->first();
 
-        factory(User::class)->create([
-            'name' => 'User',
-            'email' => 'user@codedelivery.com',
-            'password' => bcrypt('user@123')
-        ])->client()->save(factory(Client::class)->make());
+//        $generator = factory(User::class, 1)->create([
+//            'name' => 'User',
+//            'email' => 'user@codedelivery.com',
+//            'password' => bcrypt('user@123')
+//        ])->each(function ($u){
+//            $u->client()->save(factory(Client::class)->make());
+//            $u->roles()->attach(Role::where('name', 'user')->first());
+//        });
 
         //
         factory(User::class, 10)->create()->each(function ($u) {
             $u->client()->save(factory(Client::class)->make());
+            $u->roles()->attach(Role::where('name', 'client')->first());
         });
 
         $fake = new Factory();
@@ -43,6 +47,12 @@ class UserTableSeeder extends Seeder
         $user->roles()->attach($user_admin);
 
 
+        $user = new User();
+        $user->name = 'User';
+        $user->email = 'user@codedelivery.com';
+        $user->password = bcrypt('user@123');
+        $user->save();
+        $user->roles()->attach($user_client);
 
 
         $user = new User();

@@ -11,6 +11,7 @@
 |
  */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,7 +21,7 @@ Route::get('/home', function () {
 });
 
 //Router Categoria
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth.checkrole','permission'=> 'Admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth.checkrole', 'permission' => 'admin'], function () {
     Route::get('categories', ['as' => 'categories.index', 'uses' => 'CategoriesController@index']);
     Route::get('categories/create', ['as' => 'categories.create', 'uses' => 'CategoriesController@create']);
     Route::post('categories/store', ['as' => 'categories.store', 'uses' => 'CategoriesController@store']);
@@ -60,7 +61,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth.check
 });
 
 //Router User
-Route::group(['prefix' => 'customer', 'as' => 'customer.', 'permission'=> ['User',]], function () {
+Route::group(['prefix' => 'customer', 'as' => 'customer.', 'permission' => ['user']], function () {
 
     Route::get('order', ['as' => 'order.index', 'uses' => 'CheckoutController@index']);
     Route::get('order/create', ['as' => 'order.create', 'uses' => 'CheckoutController@create']);
@@ -75,6 +76,37 @@ Route::group(['prefix' => 'customer', 'as' => 'customer.', 'permission'=> ['User
 //     return $repository->all();
 // });
 
-Route::post('oauth/access_token', function() {
+Route::post('oauth/access_token', function () {
     return Response::json(Authorizer::issueAccessToken());
 });
+
+
+//Route::get('pedidos', function (){
+//    return [
+//        'Pedido' => 'E0159A'
+//    ];
+//});
+//
+Route::group(['prefix' => 'api', 'middleware' => 'oauth', 'as' => 'api.'], function () {
+
+    Route::group(['prefix' => 'client', 'middleware'=> 'oauth.checkrole:client' ,'as' => 'client.'], function () {
+
+        Route::resource('order',
+            'Api\Client\ClientCheckoutController', [
+                'except' =>['create','edit','destroy']
+        ]);
+    });
+
+    Route::group(['prefix' => 'deliveryman','middleware'=> 'oauth.checkrole:delivery', 'as' => 'deliveryman.'], function () {
+        Route::get('pedidos', function () {
+            return [
+                'id' => 'F4521V',
+                'client' => 'Developer Web',
+                'total' => 'R$ 10,00',
+            ];
+        });
+    });
+
+
+});
+

@@ -23,11 +23,11 @@ class AdminMenuPolicy
 
     public function areaAdmin(User $user)
     {
-        return $user->hasManyRoles(['Admin']);
+        return $user->hasManyRoles(['admin']);
     }
 
     public function createClient(User $user)
     {
-        return $user->hasRole('Admin');
+        return $user->hasRole('admin');
     }
 }
