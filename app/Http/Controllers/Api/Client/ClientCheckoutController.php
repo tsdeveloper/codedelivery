@@ -66,12 +66,14 @@ class ClientCheckoutController extends Controller
 
       public function store(Request $request){
 
+        $data = $request->all();
           $userLoggedId = Authorizer::getResourceOwnerId();
           $client = $this->userRepository->find($userLoggedId)->client;
         $data['client_id'] = $client->id;
+//          dd($data);
        $o = $this->service->create($data);
 
-        return $o;
+        return $this->orderRepository->with('items')->find($o->id);
     }
 
     public function show($id){
@@ -79,9 +81,10 @@ class ClientCheckoutController extends Controller
         $client = $this->userRepository->find($userLoggedId)->client;
 //        dd($client);
         $clientId = $client->id;
-        $orders = $this->orderRepository->with('items')->scopeQuery(function ($query) use($clientId,$id){
-            return $query->where('id', '=', $id)->where('client_id', '=', $clientId);
-        })->paginate(5);
+//        $orders = $this->orderRepository->with('items','client','cupom')->scopeQuery(function ($query) use($clientId,$id){
+//            return $query->where('id', '=', $id)->where('client_id', '=', $clientId);
+//        })->paginate(5);
+                $orders = $this->orderRepository->with(['items','client','cupom'])->find($id);
 
 //        $price = currency_format(12.00, 'EUR');
 

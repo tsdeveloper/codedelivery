@@ -64,11 +64,13 @@ class OrderService
             if(isset($data['cupom_code'])){
                 $cupom =$this->cupomRepository->findByField('code',$data['cupom_code'])->first();
                 $data['cupom_id'] = $cupom->id;
+                dd($data);
                 $cupom->used = 1;
                 $cupom->save();
                 unset($data['cupom_code']);
-            }
 
+            }
+            dd($data);
             $items = $data['items'];
             unset($data['items']);
 

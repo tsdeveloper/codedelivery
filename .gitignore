@@ -1,5 +1,7 @@
-/.idea
-/.vscode
+.idea/*
+/.idea/*
+.vscode/*
+/.vscode/*
 /vendor
 /node_modules
 Homestead.yaml
