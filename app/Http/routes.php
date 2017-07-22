@@ -89,22 +89,23 @@ Route::post('oauth/access_token', function () {
 //
 Route::group(['prefix' => 'api', 'middleware' => 'oauth', 'as' => 'api.'], function () {
 
-    Route::group(['prefix' => 'client', 'middleware'=> 'oauth.checkrole:client' ,'as' => 'client.'], function () {
+    Route::group(['prefix' => 'client', 'middleware' => 'oauth.checkrole:client', 'as' => 'client.'], function () {
 
         Route::resource('order',
             'Api\Client\ClientCheckoutController', [
-                'except' =>['create','edit','destroy']
-        ]);
+                'except' => ['create', 'edit', 'destroy']
+            ]);
     });
 
-    Route::group(['prefix' => 'deliveryman','middleware'=> 'oauth.checkrole:delivery', 'as' => 'deliveryman.'], function () {
-        Route::get('pedidos', function () {
-            return [
-                'id' => 'F4521V',
-                'client' => 'Developer Web',
-                'total' => 'R$ 10,00',
-            ];
-        });
+    Route::group(['prefix' => 'deliveryman', 'middleware' => 'oauth.checkrole:delivery', 'as' => 'deliveryman.'], function () {
+        Route::resource('order',
+            'Api\Deliveryman\DeliverymanCheckoutController', [
+                'except' => ['create', 'edit', 'destroy']
+            ]);
+
+        Route::patch('order/{id}/update-status', ['uses' =>
+            'Api\Deliveryman\DeliverymanCheckoutController@updateStatus',
+            'as' => 'orders.update.status']);
     });
 
 

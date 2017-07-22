@@ -26,8 +26,8 @@ class AdminMenuPolicy
         return $user->hasManyRoles(['admin']);
     }
 
-    public function createClient(User $user)
+    public function areaClient(User $user)
     {
-        return $user->hasRole('admin');
+        return $user->hasRole('client');
     }
 }
