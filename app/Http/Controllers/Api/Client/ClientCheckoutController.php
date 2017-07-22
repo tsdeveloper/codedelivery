@@ -84,8 +84,10 @@ class ClientCheckoutController extends Controller
 //        $orders = $this->orderRepository->with('items','client','cupom')->scopeQuery(function ($query) use($clientId,$id){
 //            return $query->where('id', '=', $id)->where('client_id', '=', $clientId);
 //        })->paginate(5);
-                $orders = $this->orderRepository->with(['items','client','cupom'])->find($id);
-
+                $orders = $this->orderRepository->with(['items','client','cupom','items.product'])->find($id);
+//        $orders->items->each( function ($item){
+//           $item->product;
+//        });
 //        $price = currency_format(12.00, 'EUR');
 
         return $orders;

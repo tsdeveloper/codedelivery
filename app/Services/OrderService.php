@@ -59,21 +59,21 @@ class OrderService
         DB::beginTransaction();
         try{
 
-            $data['status'] = 0;
+            $data['status'] = 1;
 
             if(isset($data['cupom_code'])){
                 $cupom =$this->cupomRepository->findByField('code',$data['cupom_code'])->first();
                 $data['cupom_id'] = $cupom->id;
-                dd($data);
+//                dd($data);
                 $cupom->used = 1;
                 $cupom->save();
                 unset($data['cupom_code']);
 
             }
-            dd($data);
+//            dd($data);
             $items = $data['items'];
             unset($data['items']);
-
+//            dd($data['status']);
             $order = $this->orderRepository->create($data);
 
             $total = 0;

@@ -15,44 +15,51 @@ class UserTableSeeder extends Seeder
     public function run()
     {
 
-        $user_user = Role::where('name', 'user')->first();
-        $user_client = Role::where('name', 'client')->first();
-        $user_admin = Role::where('name', 'admin')->first();
-        $user_delivery = Role::where('name', 'delivery')->first();
+        $role_user = Role::where('name', 'user')->first();
+        $role_client = Role::where('name', 'client')->first();
+        $role_admin = Role::where('name', 'admin')->first();
+        $role_delivery = Role::where('name', 'delivery')->first();
 
-//        $generator = factory(User::class, 1)->create([
-//            'name' => 'User',
-//            'email' => 'user@codedelivery.com',
-//            'password' => bcrypt('user@123')
-//        ])->each(function ($u){
-//            $u->client()->save(factory(Client::class)->make());
-//            $u->roles()->attach(Role::where('name', 'user')->first());
+
+        $client = new User();
+        $client->name = 'Client';
+        $client->email = 'client@codedelivery.com';
+        $client->password = bcrypt('client@123');
+        $client->save();
+        $client->client()->save(factory(Client::class)->make());
+        $client->roles()->attach($role_client);
+
+//        factory(User::class)->create(function ($client) {
+//            $client->name = 'Client';
+//            $client->email = 'client@codedelivery.com';
+//            $client->password = bcrypt('client@123');
+//            $client->client()->save(factory(Client::class)->make());
+//            $client->roles()->attach(Role::where('name', 'client')->first());
 //        });
 
-        //
-        factory(User::class, 10)->create()->each(function ($u) {
+        factory(User::class, 11)->create()->each(function ($u) {
             $u->client()->save(factory(Client::class)->make());
             $u->roles()->attach(Role::where('name', 'client')->first());
         });
 
-        $fake = new Factory();
-
-
+//        $fake = new Factory();
+//
+//        $user = new User();
+//        $user->name = 'User';
+//        $user->email = 'user@codedelivery.com';
+//        $user->password = bcrypt('user@123');
+//        $user->save();
+//        $user->roles()->attach($user_client);
 
         $user = new User();
         $user->name = 'Admin';
         $user->email = 'admin@codedelivery.com';
         $user->password = bcrypt('admin@123');
         $user->save();
-        $user->roles()->attach($user_admin);
+        $user->roles()->attach($role_admin);
 
 
-        $user = new User();
-        $user->name = 'User';
-        $user->email = 'user@codedelivery.com';
-        $user->password = bcrypt('user@123');
-        $user->save();
-        $user->roles()->attach($user_client);
+
 
 
         $user = new User();
@@ -60,13 +67,13 @@ class UserTableSeeder extends Seeder
         $user->email = 'delivery1@codedelivery.com';
         $user->password = bcrypt('delivery1@123');
         $user->save();
-        $user->roles()->attach($user_delivery);
+        $user->roles()->attach($role_delivery);
 
         $user = new User();
         $user->name = 'Delivery2';
         $user->email = 'delivery2@codedelivery.com';
         $user->password = bcrypt('delivery2@123');
         $user->save();
-        $user->roles()->attach($user_delivery);
+        $user->roles()->attach($role_delivery);
     }
 }
