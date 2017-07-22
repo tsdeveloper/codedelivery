@@ -45,7 +45,7 @@
 					<div class="collapse navbar-collapse" id="navbar">
 						<ul class="nav navbar-nav">
 							<li class="hidden-xs"><a href="{{ url('/') }}">Seja Bem Vindo</a></li>
-							@can('permission',\CodeDelivery\Models\User::class)
+							@can('Area-Admin',\CodeDelivery\Models\User::class)
 							<li><a href="{{ route('admin.categories.index') }}">Categorias</a></li>
 							<li><a href="{{ route('admin.clients.index') }}">Clientes</a></li>
 							<li><a href="{{ route('admin.products.index') }}">Produtos</a></li>
@@ -53,7 +53,7 @@
 							<li><a href="{{ route('admin.cupoms.index') }}">Cupoms</a></li>
 							<li><a href="#">Usuários</a></li>
 							@endcan
-							@can('permission',\CodeDelivery\Models\User::class)
+							@can('Area-Client',\CodeDelivery\Models\User::class)
 							<li><a href="{{ route('customer.order.index') }}">Pedido</a></li>
 							@endcan
 

@@ -72,7 +72,7 @@ $factory->define(CodeDelivery\Models\Order::class, function (Faker\Generator $fa
        'client_id'  => $faker->numberBetween($min = 1, $max = 10),
         'total'  => rand(50,120),
         'status' => rand(1,7),
-        'user_deliveryman_id' => $faker->randomElement($array = array(null, 12, 13),$count = 1)
+        'user_deliveryman_id' => $faker->randomElement($array = array(null, 13, 14),$count = 1)
 
     ];
 });
