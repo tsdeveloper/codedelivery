@@ -4,6 +4,7 @@ namespace CodeDelivery\Http\Controllers\Api\Client;
 
 use CodeDelivery\Http\Controllers\Controller;
 use CodeDelivery\Http\Requests\AdminClientRequest;
+use CodeDelivery\Http\Requests\CheckoutRequest;
 use CodeDelivery\Repositories\OrderRepository;
 use CodeDelivery\Repositories\ProductRepository;
 use CodeDelivery\Repositories\UserRepository;
@@ -36,7 +37,8 @@ class ClientCheckoutController extends Controller
         UserRepository $userRepository,
         OrderRepository $orderRepository,
         ProductRepository $productRepository,
-        OrderService $service) {
+        OrderService $service)
+    {
 
 
         $this->userRepository = $userRepository;
@@ -45,15 +47,16 @@ class ClientCheckoutController extends Controller
         $this->service = $service;
     }
 
-    public function  index(){
+    public function index()
+    {
         $userLoggedId = Authorizer::getResourceOwnerId();
         $client = $this->userRepository->find($userLoggedId)->client;
         $clientId = $client->id;
         $orders = $this->orderRepository
-            ->with(['items','client','client.user'])
-            ->scopeQuery(function ($query) use($clientId){
-           return $query->where('client_id', '=', $clientId);
-        })->paginate(5);
+            ->with(['items', 'client', 'client.user'])
+            ->scopeQuery(function ($query) use ($clientId) {
+                return $query->where('client_id', '=', $clientId);
+            })->paginate(5);
 
 //        $price = currency_format(12.00, 'EUR');
 
@@ -61,26 +64,30 @@ class ClientCheckoutController extends Controller
 
     }
 
-    public function create(){
+    public function create()
+    {
 
-            $products = $this->productRepository->lists();
+        $products = $this->productRepository->lists();
 
-        return view('customer.order.create',compact( 'products'));
+        return view('customer.order.create', compact('products'));
     }
 
-      public function store(AdminClientRequest $request){
+    public function store(CheckoutRequest $request)
+    {
 
         $data = $request->all();
-          $userLoggedId = Authorizer::getResourceOwnerId();
-          $client = $this->userRepository->find($userLoggedId)->client;
+        dd($data);
+        $userLoggedId = Authorizer::getResourceOwnerId();
+        $client = $this->userRepository->find($userLoggedId)->client;
         $data['client_id'] = $client->id;
-//          dd($data);
-       $o = $this->service->create($data);
+
+        $o = $this->service->create($data);
 
         return $this->orderRepository->with('items')->find($o->id);
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $userLoggedId = Authorizer::getResourceOwnerId();
         $client = $this->userRepository->find($userLoggedId)->client;
 //        dd($client);
@@ -88,7 +95,7 @@ class ClientCheckoutController extends Controller
 //        $orders = $this->orderRepository->with('items','client','cupom')->scopeQuery(function ($query) use($clientId,$id){
 //            return $query->where('id', '=', $id)->where('client_id', '=', $clientId);
 //        })->paginate(5);
-                $orders = $this->orderRepository->with(['items','client','cupom','items.product'])->find($id);
+        $orders = $this->orderRepository->with(['items', 'client', 'cupom', 'items.product'])->find($id);
 //        $orders->items->each( function ($item){
 //           $item->product;
 //        });
@@ -96,5 +103,5 @@ class ClientCheckoutController extends Controller
 
         return $orders;
     }
-     
+
 }

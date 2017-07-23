@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use CodeDelivery\Models\Client;
 use CodeDelivery\Models\User;
 
-class AdminClientRequest extends Request
+class CheckoutRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -42,9 +42,9 @@ class AdminClientRequest extends Request
     public function rules()
     {
         return [
-             'name'=>'required|min:3',
-             'email'=>'required|min:3',
-             'user_id'=>'required',
+             'cupom_code'=>'exists:cupoms,code,used,0',
+//             'items.product_id'=>'required',
+//             'client_id'=>'required',
 //             'phone',
 //             'address',
 //             'city',
