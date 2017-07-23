@@ -2,10 +2,11 @@
 
 namespace CodeDelivery\Http\Requests;
 
-use CodeDelivery\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 use CodeDelivery\Models\Client;
 use CodeDelivery\Models\User;
+use function is_array;
+use Illuminate\Http\Request as HttpRequest;
 
 class CheckoutRequest extends Request
 {
@@ -16,40 +17,39 @@ class CheckoutRequest extends Request
      */
     public function authorize()
     {
-        //  return Auth::check();
-         return true;
+              return true;
 
-        //  $id = $this->get('id');
-        //  echo 'ID: '.$id;
-        //  exit ;
-        // $usertype = User::find($id);
-        // if ($usertype) {
-        //     return true;
-        // }
-        // return false;
-    //     $clinicId = \Route::input('id'); //or $this->route('id');
-
-    // return User::where('id', $clinicId)
-    // ->where('user_id', Auth::id())
-    // ->exists();
-    }
+           }
 
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
-    public function rules()
+    public function rules(HttpRequest $request)
     {
-        return [
-             'cupom_code'=>'exists:cupoms,code,used,0',
-//             'items.product_id'=>'required',
-//             'client_id'=>'required',
-//             'phone',
-//             'address',
-//             'city',
-//             'state',
-//             'zipcode'
+        $rules = [
+            'cupom_code' => 'exists:cupoms,code,used,0',
+
         ];
+        $items = $request->get('items', []);
+        $this->buildRulesItems(0, $items,$rules);
+
+        $items = !is_array($items) ? [] : $items;
+        foreach ($items as $key => $val){
+            $this->buildRulesItems($key,$items, $rules);
+        }
+        return $rules;
+
+    }
+
+    public function buildRulesItems($key,$items, array &$rules)
+    {
+        if(isset($items[$key]['product_id'])){
+            $rules["items.$key.product_id"] = 'required';
+        };
+        if(isset($items[$key]['qtd'])) {
+            $rules["items.$key.qtd"] = 'required';
+        }
     }
 }

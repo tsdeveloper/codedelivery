@@ -76,7 +76,10 @@ class ClientCheckoutController extends Controller
     {
 
         $data = $request->all();
-        dd($data);
+
+        $items = $request->get('items', []);
+
+//        dd($items[0]['product_id']);
         $userLoggedId = Authorizer::getResourceOwnerId();
         $client = $this->userRepository->find($userLoggedId)->client;
         $data['client_id'] = $client->id;
