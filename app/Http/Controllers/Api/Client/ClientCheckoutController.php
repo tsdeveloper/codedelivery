@@ -3,6 +3,7 @@
 namespace CodeDelivery\Http\Controllers\Api\Client;
 
 use CodeDelivery\Http\Controllers\Controller;
+use CodeDelivery\Http\Requests\AdminClientRequest;
 use CodeDelivery\Repositories\OrderRepository;
 use CodeDelivery\Repositories\ProductRepository;
 use CodeDelivery\Repositories\UserRepository;
@@ -45,15 +46,18 @@ class ClientCheckoutController extends Controller
     }
 
     public function  index(){
-        $clientId = $this->userRepository->find(Auth::user()->id)->client->id;
-//        dd($clientId);
-        $orders = $this->orderRepository->scopeQuery(function ($query) use($clientId){
+        $userLoggedId = Authorizer::getResourceOwnerId();
+        $client = $this->userRepository->find($userLoggedId)->client;
+        $clientId = $client->id;
+        $orders = $this->orderRepository
+            ->with(['items','client','client.user'])
+            ->scopeQuery(function ($query) use($clientId){
            return $query->where('client_id', '=', $clientId);
         })->paginate(5);
 
 //        $price = currency_format(12.00, 'EUR');
 
-        return view('customer.order.index',compact( 'orders'));
+        return $orders;
 
     }
 
@@ -64,7 +68,7 @@ class ClientCheckoutController extends Controller
         return view('customer.order.create',compact( 'products'));
     }
 
-      public function store(Request $request){
+      public function store(AdminClientRequest $request){
 
         $data = $request->all();
           $userLoggedId = Authorizer::getResourceOwnerId();
