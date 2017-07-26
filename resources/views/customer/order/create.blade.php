@@ -1,6 +1,7 @@
 @extends('app')
 @section('content')
     <div class="container">
+        @include('errors._check')
         {!! Form::open(['route'=>'customer.order.store','class'=>'form']) !!}
         <div class="title"><h3>Área Administrativa de Listagem de produtos</h3></div>
         <br/>

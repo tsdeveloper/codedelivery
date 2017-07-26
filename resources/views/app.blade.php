@@ -60,7 +60,7 @@
 						</ul>
 						<ul class="nav navbar-nav navbar-center welcome-msg hidden-xs hidden-sm">
 						
-							<li><a href="">Seja bem vindo <strong><span class="login-user">{{ empty(auth()->user()->name) ? 'Visitante' : auth()->user()->name }}</span></strong></a></li>
+							<li><a href="">Teste <strong><span class="login-user">{{ empty(auth()->user()->name) ? 'Visitante' : auth()->user()->name }}</span></strong></a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							@if(auth()->guest()) @if(!Request::is('auth/login'))
