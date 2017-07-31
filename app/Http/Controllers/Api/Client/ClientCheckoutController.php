@@ -33,6 +33,7 @@ class ClientCheckoutController extends Controller
      */
     private $service;
 
+    private $with = ['items','client','cupom'];
     public function __construct(
         UserRepository $userRepository,
         OrderRepository $orderRepository,
@@ -53,7 +54,8 @@ class ClientCheckoutController extends Controller
         $client = $this->userRepository->find($userLoggedId)->client;
         $clientId = $client->id;
         $orders = $this->orderRepository
-            ->with(['items', 'client', 'client.user'])
+            ->skipPresenter(false)
+            ->with($this->with)
             ->scopeQuery(function ($query) use ($clientId) {
                 return $query->where('client_id', '=', $clientId);
             })->paginate(5);
@@ -86,7 +88,9 @@ class ClientCheckoutController extends Controller
 
         $o = $this->service->create($data);
 
-        return $this->orderRepository->with('items')->find($o->id);
+        return $this->orderRepository
+            ->skipPresenter(false)
+            ->with($this->with)->find($o->id);
     }
 
     public function show($id)
@@ -95,14 +99,12 @@ class ClientCheckoutController extends Controller
         $client = $this->userRepository->find($userLoggedId)->client;
 //        dd($client);
         $clientId = $client->id;
-//        $orders = $this->orderRepository->with('items','client','cupom')->scopeQuery(function ($query) use($clientId,$id){
-//            return $query->where('id', '=', $id)->where('client_id', '=', $clientId);
-//        })->paginate(5);
-        $orders = $this->orderRepository->with(['items', 'client', 'cupom', 'items.product'])->find($id);
-//        $orders->items->each( function ($item){
-//           $item->product;
-//        });
-//        $price = currency_format(12.00, 'EUR');
+        $orders = $this->orderRepository
+            ->skipPresenter(false)
+            ->with($this->with)->scopeQuery(function ($query) use($clientId,$id){
+            return $query->where('id', '=', $id)->where('client_id', '=', $clientId);
+        })->paginate(5);
+
 
         return $orders;
     }
