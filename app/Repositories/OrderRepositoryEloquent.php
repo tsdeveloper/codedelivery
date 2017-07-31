@@ -16,6 +16,9 @@ use CodeDelivery\Models\Order;
  */
 class OrderRepositoryEloquent extends BaseRepository implements OrderRepository
 {
+
+    protected $skipPresenter = true;
+
     public function getByAndIdDeliveryman($id, $IdDeliveryman)
     {
         $result = $this->with(['items','deliveryman','cupom','items.product'])->findWhere([
