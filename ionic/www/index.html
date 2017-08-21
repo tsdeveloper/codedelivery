@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
@@ -30,60 +30,30 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
+    <script src="js/Controllers/home.js"></script>
     <script src="js/app.js"></script>
-  </head>
-  <body ng-app="starter">
+</head>
+<body ng-app="starter">
+<!--<ion-header-bar class="bar bar-positive">-->
+<!--<h2 class="title">Minhas Rotas</h2>-->
+<!--</ion-header-bar>-->
+<ion-nav-bar class="bar bar-positive"></ion-nav-bar>
 
-    <ion-pane>
-      <ion-header-bar align-title="left" class="bar-positive">
-        <div class="buttons">
-          <button class="button" ng-click="doSomething()">Left Button</button>
-        </div>
-        <h1 class="title">Ionic Fazendo Mais Web App</h1>
-        <div class="buttons">
-          <button class="button">Right Button</button>
-        </div>
-      </ion-header-bar>
+    <ion-nav-view></ion-nav-view >
+<ion-content  class="padding">
+    <FolderListComponent class="padding">
+        <ul class="padding left">
+            <li>INBOX</li>
+            <li>SPAM</li>
+            <li>DELETED</li>
+            <li>SENT</li>
+        </ul>
 
-        <ion-content class="has-header">
-          <div class="list card">
-            <div class="item item-avatar">
-              <img src="//tutorialsplane.com/runtest/ionic/img/profile.jpg">
-              <h2>Thyago Developer</h2>
-              <p>Developer Web...</p>
-            </div>
-
-            <div class="item item-image">
-              <img src="//tutorialsplane.com/runtest/ionic/img/cover.jpg">
-            </div>
-          </div>
-
-          <!--<div class="tabs-background-positive tabs-color-stable tabs-top tabs-striped">-->
-            <!--<nav class="tabs">-->
-              <!--<a class="tab-item active" href="#"><i class="icon ion-game-controller-a"></i> Fun</a>-->
-              <!--<a class="tab-item"><i class="icon ion-locked"></i>Security</a>-->
-              <!--<a class="tab-item has-badge"><i class="badge badge-assertive">3</i><i class="icon ion-leaf"></i>Light</a>-->
-              <!--<a disabled class="tab-item"><i class="icon ion-close"></i>Inactive</a>-->
-            <!--</nav>-->
-          <!--</div>-->
-          <!--<div class="view tabs-dark tabs-striped">-->
-            <!--<nav class="tabs">-->
-              <!--<a class="tab-item active" href="#"><i class="icon ion-game-controller-a"></i> Fun</a>-->
-              <!--<a class="tab-item"><i class="icon ion-locked"></i>Security</a>-->
-              <!--<a class="tab-item has-badge"><i class="badge badge-assertive">3</i><i class="icon ion-leaf"></i>Light</a>-->
-              <!--<a disabled class="tab-item"><i class="icon ion-close"></i>Inactive</a>-->
-            <!--</nav>-->
-          <!--</div>-->
-        </ion-content>
-      <ion-footer-bar align-title="left" class="bar-assertive">
-        <div class="buttons">
-          <button class="button">Left Button</button>
+        <div class="right">
+            <uiview></uiview>
         </div>
-        <h1 class="title">Title!</h1>
-        <div class="buttons" ng-click="doSomething()">
-          <button class="button">Right Button</button>
-        </div>
-      </ion-footer-bar>
-    </ion-pane>
-  </body>
+    </FolderListComponent>
+</ion-content>
+
+</body>
 </html>
