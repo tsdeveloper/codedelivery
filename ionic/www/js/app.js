@@ -3,9 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','starter.controllers'])
+angular.module('starter', ['ionic','starter.controllers','angular-oauth2'])
 
-    .run(function ($ionicPlatform) {
+    .run(['$rootScope', '$window', 'OAuth','$ionicPlatform', function ($rootScope, $window, OAuth, $ionicPlatform) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -21,27 +21,46 @@ angular.module('starter', ['ionic','starter.controllers'])
                 StatusBar.styleDefault();
             }
         });
-    })
+        $rootScope.$on('oauth:error', function(event, rejection) {
+            // Ignore `invalid_grant` error - should be catched on `LoginController`.
+            if ('invalid_grant' === rejection.data.error) {
+                return;
+            }
 
-    .config(function ($stateProvider, $urlRouterProvider) {
+            // Refresh token when a `invalid_token` error occurs.
+            if ('invalid_token' === rejection.data.error) {
+                return OAuth.getRefreshToken();
+            }
+
+            // Redirect to `/login` with the `error_reason`.
+            return $window.location.href = '/login?error_reason=' + rejection.data.error;
+        });
+    }])
+
+    .config(function ($stateProvider, $urlRouterProvider, OAuthProvider, OAuthTokenProvider) {
+        OAuthProvider.configure({
+            baseUrl: 'http://localhost:8000',
+            clientId: 'fm_app_entrada',
+            clientSecret: '$2y$10$YaFsJ2kBVmFYNHDW39igdOsRtRwU3/Cr9', // optional
+            grantPath: '/oauth/access_token'
+        });
+
+        OAuthTokenProvider.configure({
+            name: 'token',
+            options: {
+                secure: false
+            }
+        });
         $stateProvider
             .state('home', {
                 url: '/home/:name?',
                 templateUrl: 'templates/home.html',
                 controller: 'HomeCtrl'
             })
-            .state('home.a', {
-                url: '/a',
-                templateUrl: 'templates/home-a.html'
-            })
-            // .state('home.a.childA', {
-            //     url: '/childA',
-            //     templateUrl: 'templates/main-a.html'
-            // })
-
-            .state('home.b', {
-                url: '/b',
-                templateUrl: 'templates/home-b.html'
+            .state('login', {
+                url: '/login',
+                templateUrl: 'templates/login.html',
+                controller: 'LoginCtrl'
             })
             .state('main', {
                 url: '/main',
